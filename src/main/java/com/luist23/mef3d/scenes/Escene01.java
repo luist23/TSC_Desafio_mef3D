@@ -1,7 +1,9 @@
 package main.java.com.luist23.mef3d.scenes;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.MainApp;
@@ -22,8 +24,10 @@ public class Escene01 {
         });
 
         hBox= new HBox(button);
+        hBox.setAlignment(Pos.CENTER);
         hBox.setPrefHeight(150.0);
         hBox.getChildren().addAll(Utiles.imagen("a",hBox.getPrefHeight()));
+        hBox.setBackground(Utiles.background("a",hBox.getHeight(),hBox.getWidth()));
     }
 
     public Scene getScene(){
