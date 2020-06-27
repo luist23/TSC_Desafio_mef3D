@@ -3,8 +3,10 @@ package main.java.com.luist23.mef3d;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import main.java.com.luist23.mef3d.utils.Utiles;
 
 public class Main extends Application {
 
@@ -23,10 +25,11 @@ public class Main extends Application {
             //window.close();
         });
 
-        StackPane layout = new StackPane();
-        layout.getChildren().add(button);
+        HBox hBox= new HBox(button, Utiles.imagen("a"));
+        //StackPane layout = new StackPane();
+        //layout.getChildren().add(button, Utiles.imagen("a"));
 
-        window.setScene(new Scene(layout));
+        window.setScene(new Scene(hBox));
         window.setMaximized(true); //pantalla completa
         window.show();
     }
