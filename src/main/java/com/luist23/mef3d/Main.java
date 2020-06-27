@@ -1,8 +1,6 @@
-package sample;
+package main.java.com.luist23.mef3d;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -27,7 +25,9 @@ public class Main extends Application {
 
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
-        window.setScene(new Scene(layout, 300, 275));
+
+        window.setScene(new Scene(layout));
+        window.setMaximized(true); //pantalla completa
         window.show();
     }
 

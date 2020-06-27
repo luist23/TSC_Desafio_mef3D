@@ -1,4 +1,4 @@
-package sample;
+package main.java.com.luist23.mef3d;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ public class Stage2{
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
-        Button button = new Button("Next page");
+        Button button = new Button("x∇(A)+xy∇^2 (B)=78.4");
 
         button.setOnAction(e -> {
             window.close();
