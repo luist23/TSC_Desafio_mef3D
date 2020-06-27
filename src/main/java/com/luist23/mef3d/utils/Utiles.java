@@ -6,9 +6,12 @@ import javafx.scene.image.ImageView;
 public  class Utiles {
     //private static Utiles = new Utiles;
 
-    public static ImageView imagen(String a){
+    public static ImageView imagen(String a, double height){
         Image image = new Image(Utiles.class.getResourceAsStream("../assets/sample001.png"));
-        return new ImageView(image);
+        ImageView view = new ImageView(image);
+        view.setPreserveRatio(true);
+        view.setFitHeight(height);
+        return view;
     }
     public Utiles(){
     }

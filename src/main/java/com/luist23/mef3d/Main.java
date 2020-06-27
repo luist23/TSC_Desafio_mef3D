@@ -25,7 +25,7 @@ public class Main extends Application {
             //window.close();
         });
 
-        HBox hBox= new HBox(button, Utiles.imagen("a"));
+        HBox hBox= new HBox(button, Utiles.imagen("a",25));
         //StackPane layout = new StackPane();
         //layout.getChildren().add(button, Utiles.imagen("a"));
 
