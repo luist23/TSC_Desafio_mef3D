@@ -26,8 +26,8 @@ public class Escene01 {
         hBox= new HBox(button);
         hBox.setAlignment(Pos.CENTER);
         hBox.setPrefHeight(150.0);
-        hBox.getChildren().addAll(Utiles.imagen("a",hBox.getPrefHeight()));
-        hBox.setBackground(Utiles.background("a",hBox.getHeight(),hBox.getWidth()));
+        hBox.getChildren().addAll(Utiles.imagen("a",hBox.getPrefHeight(),hBox.getWidth()));
+        hBox.setBackground(Utiles.background("background01",hBox.getHeight(),hBox.getWidth()));
     }
 
     public Scene getScene(){
