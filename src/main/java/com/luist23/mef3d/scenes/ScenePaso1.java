@@ -68,19 +68,15 @@ public class ScenePaso1 {
         String[] ecu3={"n3","H11","igual","H11","n3c","H11"};
         String[] ecu4={"n4","H11","igual","H11","n4c","H11"};
         String[] ecuacion =  {
-                "",
             "Definimos N sub 1",
             "Definimos N sub 2",
             "Definimos N sub 3",
-            "Definimos N sub 4",
-                ""
+            "Definimos N sub 4"
         };
         String[] titu = {
-
                 "Definimos las funciones de forma:0",
                 "Definimos las funciones de forma:1",
                 "Definimos las funciones de forma: 2"
-
         };
         llenar(titulos,titu);
         llenar(subtitulos,ecuacion);
@@ -230,30 +226,40 @@ public class ScenePaso1 {
             //System.out.println(transiciones.get(flagTrancision));
             if (transiciones.get(flagTrancision) == 0) {
 
+                //titulo.setText(titulos.get(flagTrancision));
+                //pila.add(subpila);
+                //subpila = new VBox();
+                //presentacion.getChildren().add(subpila);
+                //flagTitulo++;
+                //flagTrancision++;
+                //presentacion.getChildren().remove(pila.remove(flagTrancision));
+
+
                 if (flagTrancision > 0) {
 
                     presentacion.getChildren().remove(pila.remove(flagTrancision));
                     flagTrancision--;
-                    flagTitulo--;
                     flagTransicionAux = transiciones.get(flagTrancision);
                 }
 
+
                 subpila = pila.get(flagTrancision);
                 presentacion.getChildren().add(subpila);
-
+                //presentacion.getChildren().add(subpila);
                 titulo.setText(titulos.get(flagTrancision));
-                subtitulo.setText(subtitulos.get(flagTitulo));
-                
+
+
+                //titulo.setText(titulos.get(flagTitulo));
+                //flagTitulo--;
 
             } else {
                 if (flagTransicionAux <= transiciones.get(flagTrancision) && flagTransicionAux != 0) {
                     //
                     //
                     flagTransicionAux--;
-                    flagTitulo--;
                     subpila.getChildren().remove(flagTransicionAux);
                     //presentacion.getChildren().get(ecu).getC;
-                    subtitulo.setText(subtitulos.get(flagTitulo));
+                    subtitulo.setText(subtitulos.get(flagTransicionAux));
 
                     if (flagTransicionAux == 0 && flagTrancision != 0) {
                         if (flagTrancision > 0) {
@@ -285,13 +291,13 @@ public class ScenePaso1 {
     }
 
     protected void comenzar(){
-        //System.out.println(pila);
+        System.out.println(pila);
         //System.out.println(pila.toString());
 
         if(flagTrancision<transiciones.size()){
             if(transiciones.get(flagTrancision)==0){
                 titulo.setText(titulos.get(flagTrancision));
-                subtitulo.setText(subtitulos.get(flagTitulo));
+                subtitulo.setText(subtitulos.get(flagTrancision));
                 //pila.add(subpila);
                 presentacion.getChildren().remove(subpila);
                 subpila = new VBox();
@@ -299,32 +305,24 @@ public class ScenePaso1 {
                 presentacion.getChildren().add(subpila);
                 //flagTitulo++;
                 flagTrancision++;
-                flagTitulo++;
             }else {
-
+                titulo.setText(titulos.get(flagTrancision));
                 if (flagTransicionAux < transiciones.get(flagTrancision)) {
                     HBox ecu= new HBox();
-                    titulo.setText(titulos.get(flagTrancision));
-                    subtitulo.setText(subtitulos.get(flagTitulo));
-
+                    subtitulo.setText(subtitulos.get(flagTransicionAux));
                     llenarEcuacion(ecu,ecuaciones.get(flagTransicionAux));
                     subpila.getChildren().add(ecu);
                     ecu.setAlignment(Pos.CENTER);
                     ecu.autosize();
                     flagTransicionAux++;
-                    flagTitulo++;
 
                 }else
                 if(flagTransicionAux == transiciones.get(flagTrancision)){
-                    //titulo.setText(titulos.get(flagTrancision+1));
-                    //subtitulo.setText(subtitulos.get(flagTitulo));
                     presentacion.getChildren().remove(subpila);
                     subpila = new VBox();
                     pila.add(subpila);
                     presentacion.getChildren().add(subpila);
-                    //flagTitulo++;
                     flagTrancision++;
-                    comenzar();
                 }
                 /*else {
                     //titulo.setText(titulos.get(flagTrancision));
