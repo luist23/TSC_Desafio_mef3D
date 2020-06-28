@@ -9,7 +9,8 @@ public  class Utiles {
     //private static Utiles = new Utiles;
 
     public static ImageView imagen(String a, double height, double width){
-        Image image = new Image(Utiles.class.getResourceAsStream("../assets/sample001.png"));
+        //System.out.println(a + " "+height+ " "+width);
+        Image image = new Image(Utiles.class.getResourceAsStream("../assets/"+ a +".png"));
         ImageView view = new ImageView(image);
         view.setPreserveRatio(true);
         view.setFitHeight(height);
@@ -17,9 +18,9 @@ public  class Utiles {
         return view;
     }
 
-    public static ImageView animation(String a, double height, double width){
-        ImageView view = new ImageView();
-        Image image = new Image(Utiles.class.getResource("../assets/teclas.gif").toExternalForm());
+    public static void animation(ImageView view, String a, double height, double width){
+        //ImageView view = new ImageView();
+        Image image = new Image(Utiles.class.getResource("../assets/"+a+".gif").toExternalForm());
         view.setImage(image);
         //view.setLayoutX(width);
         //view.setLayoutY(height);
@@ -27,7 +28,7 @@ public  class Utiles {
         view.setPreserveRatio(true);
         view.setFitHeight(height);
         view.setFitWidth(width);
-        return view;
+        //return view;
     }
 
     public static Background background(String a, double height ,double width){

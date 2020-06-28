@@ -26,19 +26,21 @@ public class SceneModelo {
     private Button siguiente,anterior;
     private TypeScene next,preview;
     private Scene scene;
+    private ImageView instruccion = new ImageView();
     private final String[] images= {
-            "Modelo_01","Modelo_02","Modelo_03","Modelo_04","Modelo_05"
+            "00","01","02","03","04"//"Modelo_01","Modelo_02","Modelo_03","Modelo_04","Modelo_05"
     };
     private final String[] titulos= {
-            "Figura",
-            "Geometria",
-            "Malla","Nodos","Tetraedros"
+            "Geometría",
+            "Malla", "Nodos", "Tetraedros",
+            "Representación en mundo x, y, z",
+            "Representación en mundo épsilon, eta, psi"
     };
     private int flag = 0;
 
     public SceneModelo(Stage stage){
         stage.setTitle("Modelo");
-        next=TypeScene.STAGE2;
+        next=TypeScene.PASO1;
         preview=TypeScene.STAGE2;
 
         //botones---------------------------------
@@ -60,19 +62,19 @@ public class SceneModelo {
         titulo.setFont(Font.font(null, FontWeight.BOLD, 18));
         subtitulo.setTextAlignment(TextAlignment.CENTER);
         subtitulo.setFill(Color.RED);
-        subtitulo.setFont(Font.font(null, FontWeight.BOLD, 30));
-        titulo.setText("Primeramente nos familisialermos con nuestro modelo: \n" +
-                "Utilizaremos un cubo rectanular con un ancho de 1, largo de 3 y alto de 1");
+        subtitulo.setFont(Font.font(null, FontWeight.BOLD, 18));
+        titulo.setText("Primeramente vamos a familiarizarnos con nuestro modelo: \n" +
+                "Utilizaremos un cubo rectangular con un ancho de 1, largo de 3 y alto de 1");
         subtitulo.setText(titulos[flag]);
 
         //-----------------------------------------
         //iniciando contenedores-------------------
         presentacion= new HBox();
-        naveacion = new HBox(anterior,siguiente);
+        naveacion = new HBox(anterior,instruccion,siguiente);
         content = new VBox(titulo,subtitulo,presentacion,naveacion);
         content.setAlignment(Pos.CENTER);
         scene =new Scene(content,stage.getWidth(),stage.getHeight());
-        naveacion.setSpacing(stage.getWidth()/2);
+        naveacion.setSpacing(stage.getWidth()/4);
         naveacion.setAlignment(Pos.CENTER);
         //------------------------------------------
 
@@ -89,15 +91,17 @@ public class SceneModelo {
         //hBox.setPrefHeight(content.getHeight()*0.9);
         //naveacion.setPrefHeight(stage.getHeight()*0.1);
 
-        ImageView imageView = Utiles.animation("a",stage.getHeight()*0.2,stage.getWidth()*0.2);
-        presentacion.getChildren().addAll(imageView);
+        Utiles.animation( instruccion, "teclas",stage.getHeight()*0.1,stage.getWidth()*0.1);
+        //presentacion.getChildren().addAll(imageView);
 
-        presentacion.setBackground(Utiles.background(images[flag],scene.getHeight()*0.1,scene.getWidth()*0.1));
-
-
+        presentacion.setBackground(Utiles.background(images[flag],presentacion.getPrefHeight(),presentacion.getPrefWidth()));
+        //presentacion.getChildren().add(Utiles.imagen(images[flag], presentacion.getPrefHeight(),presentacion.getPrefWidth()));
+        /*
         imageView.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
             //stage.close();
         });
+
+         */
 
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
 
@@ -137,6 +141,8 @@ public class SceneModelo {
     }
 
     private void redimension(Stage stage){
+        instruccion.setFitWidth(stage.getWidth()*0.1);
+        instruccion.setFitHeight(stage.getHeight()*0.1);
         content.setPrefHeight(stage.getHeight());
         titulo.prefHeight(stage.getHeight()*0.1);
         subtitulo.prefHeight(stage.getHeight()*0.1);
