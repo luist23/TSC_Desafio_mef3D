@@ -68,15 +68,19 @@ public class ScenePaso1 {
         String[] ecu3={"n3","H11","igual","H11","n3c","H11"};
         String[] ecu4={"n4","H11","igual","H11","n4c","H11"};
         String[] ecuacion =  {
+                "",
             "Definimos N sub 1",
             "Definimos N sub 2",
             "Definimos N sub 3",
-            "Definimos N sub 4"
+            "Definimos N sub 4",
+                ""
         };
         String[] titu = {
+
                 "Definimos las funciones de forma:0",
                 "Definimos las funciones de forma:1",
                 "Definimos las funciones de forma: 2"
+
         };
         llenar(titulos,titu);
         llenar(subtitulos,ecuacion);
@@ -139,6 +143,7 @@ public class ScenePaso1 {
         naveacion.setSpacing(stage.getWidth()/4);
         naveacion.setAlignment(Pos.CENTER);
         pila.add(subpila);
+        presentacion.getChildren().add(subpila);
         //------------------------------------------
         Utiles.animation( instruccion, "teclas",stage.getHeight()*0.2,stage.getWidth()*0.2);
         redimension(stage);
@@ -210,46 +215,60 @@ public class ScenePaso1 {
     }
 
     protected void regresar(){
+        System.out.println("presentacion: "+presentacion.getChildren());
         if(flagTrancision>=transiciones.size()){
-            System.out.println(flagTrancision);
+            //System.out.println(flagTrancision);
+            pila.remove(flagTrancision);
             flagTrancision=transiciones.size()-1;
-            flagTransicionAux = transiciones.get(flagTrancision)-1;
-            System.out.println(flagTrancision);
+            flagTransicionAux = transiciones.get(flagTrancision);
+            subpila=pila.get(flagTrancision);
+            //System.out.println(flagTrancision);
+            System.out.println(pila);
         }
-        if(flagTrancision >= 0){
+        if(flagTransicionAux!=0 || flagTrancision!=0){
+        if(flagTrancision >= 0) {
             //System.out.println(transiciones.get(flagTrancision));
-            if(transiciones.get(flagTrancision)==0){
+            if (transiciones.get(flagTrancision) == 0) {
 
-                //titulo.setText(titulos.get(flagTrancision));
-                //pila.add(subpila);
-                //subpila = new VBox();
-                //presentacion.getChildren().add(subpila);
-                //flagTitulo++;
-                //flagTrancision++;
+                if (flagTrancision > 0) {
 
+                    presentacion.getChildren().remove(pila.remove(flagTrancision));
+                    flagTrancision--;
+                    flagTitulo--;
+                    flagTransicionAux = transiciones.get(flagTrancision);
+                }
 
-                presentacion.getChildren().remove(pila.remove(flagTrancision));
-                flagTrancision--;
-                subpila=pila.get(flagTrancision);
+                subpila = pila.get(flagTrancision);
                 presentacion.getChildren().add(subpila);
+
                 titulo.setText(titulos.get(flagTrancision));
-                flagTransicionAux = transiciones.get(flagTrancision)-1;
+                subtitulo.setText(subtitulos.get(flagTitulo));
+                
 
-
-
-                //titulo.setText(titulos.get(flagTitulo));
-                //flagTitulo--;
-
-            }else {
-                if (flagTransicionAux < transiciones.get(flagTrancision) && flagTransicionAux!= 0) {
+            } else {
+                if (flagTransicionAux <= transiciones.get(flagTrancision) && flagTransicionAux != 0) {
+                    //
                     //
                     flagTransicionAux--;
-                    pila.get(flagTrancision).getChildren().remove(flagTransicionAux);
+                    flagTitulo--;
+                    subpila.getChildren().remove(flagTransicionAux);
                     //presentacion.getChildren().get(ecu).getC;
-                    subtitulo.setText(subtitulos.get(flagTransicionAux));
+                    subtitulo.setText(subtitulos.get(flagTitulo));
+
+                    if (flagTransicionAux == 0 && flagTrancision != 0) {
+                        if (flagTrancision > 0) {
+
+                            presentacion.getChildren().remove(pila.remove(flagTrancision));
+                            flagTrancision--;
+                            flagTransicionAux = transiciones.get(flagTrancision);
+                            subpila = pila.get(flagTrancision);
+                            presentacion.getChildren().add(subpila);
+                        }
+
+                    }
 
                 }
-                else {
+                /*else {
                     presentacion.getChildren().remove(pila.remove(flagTrancision));
                     flagTrancision--;
                     subpila=pila.get(flagTrancision);
@@ -259,38 +278,53 @@ public class ScenePaso1 {
 
 
                     //flagTransicionAux=0;
-                }
+                }*/
             }
-
+        }
         }
     }
 
     protected void comenzar(){
+        //System.out.println(pila);
         //System.out.println(pila.toString());
 
         if(flagTrancision<transiciones.size()){
             if(transiciones.get(flagTrancision)==0){
                 titulo.setText(titulos.get(flagTrancision));
+                subtitulo.setText(subtitulos.get(flagTitulo));
+                //pila.add(subpila);
+                presentacion.getChildren().remove(subpila);
                 subpila = new VBox();
                 pila.add(subpila);
                 presentacion.getChildren().add(subpila);
                 //flagTitulo++;
                 flagTrancision++;
+                flagTitulo++;
             }else {
-                titulo.setText(titulos.get(flagTrancision));
+
                 if (flagTransicionAux < transiciones.get(flagTrancision)) {
                     HBox ecu= new HBox();
-                    subtitulo.setText(subtitulos.get(flagTransicionAux));
+                    titulo.setText(titulos.get(flagTrancision));
+                    subtitulo.setText(subtitulos.get(flagTitulo));
+
                     llenarEcuacion(ecu,ecuaciones.get(flagTransicionAux));
                     subpila.getChildren().add(ecu);
                     ecu.setAlignment(Pos.CENTER);
                     ecu.autosize();
                     flagTransicionAux++;
-                    if(flagTransicionAux == transiciones.get(flagTrancision)){
-                        subpila = new VBox();
-                        pila.add(subpila);
-                        flagTrancision++;
-                    }
+                    flagTitulo++;
+
+                }else
+                if(flagTransicionAux == transiciones.get(flagTrancision)){
+                    //titulo.setText(titulos.get(flagTrancision+1));
+                    //subtitulo.setText(subtitulos.get(flagTitulo));
+                    presentacion.getChildren().remove(subpila);
+                    subpila = new VBox();
+                    pila.add(subpila);
+                    presentacion.getChildren().add(subpila);
+                    //flagTitulo++;
+                    flagTrancision++;
+                    comenzar();
                 }
                 /*else {
                     //titulo.setText(titulos.get(flagTrancision));
