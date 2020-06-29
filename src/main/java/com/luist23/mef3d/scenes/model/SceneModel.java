@@ -32,7 +32,7 @@ public class SceneModel {
     private Scene scene;
     private ImageView instruccion = new ImageView();
 
-    
+
     private VBox subpila= new VBox();
     private ArrayList<VBox> pila=new ArrayList<>();
     protected String tituloVentana;
@@ -104,6 +104,7 @@ public class SceneModel {
         naveacion.setAlignment(Pos.CENTER);
         pila.add(subpila);
         presentacion.getChildren().add(subpila);
+        subpila.setSpacing(10);
         //------------------------------------------
         Utiles.animation( instruccion, "teclas",stage.getHeight()*0.2,stage.getWidth()*0.2);
         redimension(stage);
@@ -156,15 +157,15 @@ public class SceneModel {
     }
 
     protected void regresar(){
-        System.out.println("presentacion: "+presentacion.getChildren());
+        //System.out.println("presentacion: "+presentacion.getChildren());
         if(flagTrancision>=transiciones.size()){
             //System.out.println(flagTrancision);
-            pila.remove(flagTrancision);
+            //pila.remove(flagTrancision);
             flagTrancision=transiciones.size()-1;
             flagTransicionAux = transiciones.get(flagTrancision);
             subpila=pila.get(flagTrancision);
             //System.out.println(flagTrancision);
-            System.out.println(pila);
+            //System.out.println(pila);
         }
         if(flagTransicionAux!=0 || flagTrancision!=0){
         if(flagTrancision >= 0) {
@@ -227,7 +228,7 @@ public class SceneModel {
     }
 
     protected void comenzar(){
-        System.out.println(pila);
+        //System.out.println(pila);
         //System.out.println(pila.toString());
 
         if(flagTrancision<transiciones.size()){
@@ -237,6 +238,7 @@ public class SceneModel {
                 //pila.add(subpila);
                 presentacion.getChildren().remove(subpila);
                 subpila = new VBox();
+                subpila.setSpacing(10);
                 pila.add(subpila);
                 presentacion.getChildren().add(subpila);
                 //flagTitulo++;
@@ -246,7 +248,7 @@ public class SceneModel {
                 if (flagTransicionAux < transiciones.get(flagTrancision)) {
                     HBox ecu= new HBox();
                     subtitulo.setText(subtitulos.get(flagTrancision).get(flagTransicionAux));
-                    System.out.println("aqui"+flagTransicionAux+"noaux"+flagTrancision);
+                    //System.out.println("aqui"+flagTransicionAux+"noaux"+flagTrancision);
                     llenarEcuacion(ecu,ecuaciones.get(flagTrancision).get(flagTransicionAux));
                     subpila.getChildren().add(ecu);
                     ecu.setAlignment(Pos.CENTER);
@@ -255,11 +257,15 @@ public class SceneModel {
 
                 }else
                 if(flagTransicionAux == transiciones.get(flagTrancision)){
-                    presentacion.getChildren().remove(subpila);
-                    subpila = new VBox();
-                    pila.add(subpila);
-                    presentacion.getChildren().add(subpila);
+
                     flagTrancision++;
+                    if(transiciones.size()>flagTrancision){
+                        presentacion.getChildren().remove(subpila);
+                        subpila = new VBox();
+                        subpila.setSpacing(10);
+                        pila.add(subpila);
+                        presentacion.getChildren().add(subpila);
+                    }
                     flagTransicionAux=0;
                     comenzar();
                 }
@@ -273,7 +279,7 @@ public class SceneModel {
         for (int i = 0; i < list.size(); i++) {
             //System.out.println(list.get(i));
             char[] a = list.get(i+1).toCharArray();
-            //System.out.println(a);
+            //System.out.println(list.get(i));
             ecu.getChildren().add(Utiles.imagen(list.get(i),30 * Integer.parseInt(String.valueOf(a[1]))
                     ,30 * Integer.parseInt(String.valueOf(a[2]))  ));
             i++;
