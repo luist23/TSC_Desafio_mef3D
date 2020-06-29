@@ -1,13 +1,10 @@
 package main.java.com.luist23.mef3d.factory;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.scenes.*;
-
-import java.io.IOException;
+import main.java.com.luist23.mef3d.scenes.model.SceneModel;
 
 public class FactoryScene {
 
@@ -27,7 +24,7 @@ public class FactoryScene {
                 SceneModelo sceneModelo = new SceneModelo(stage);
                 return sceneModelo.getScene();
             case PASO1:
-                ScenePaso1 scenePaso1=new ScenePaso1(stage);
+                SceneModel scenePaso1=new ScenePaso1(stage);
                 return  scenePaso1.getScene();
         }
         return null;
