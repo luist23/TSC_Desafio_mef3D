@@ -253,6 +253,7 @@ public class SceneModel {
                     subpila.getChildren().add(ecu);
                     ecu.setAlignment(Pos.CENTER);
                     ecu.autosize();
+                    ecu.setSpacing(3);
                     flagTransicionAux++;
 
                 }else

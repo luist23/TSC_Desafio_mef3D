@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class ScenePaso2 extends SceneModel {
     public void inicializar(){
         tituloVentana = "Paso II";
-        next=TypeScene.STAGE2;
-        preview=TypeScene.STAGE2;
+        next=TypeScene.PASO3;
+        preview=TypeScene.PASO1;
         fondo="background01";
 
 
@@ -22,12 +22,12 @@ public class ScenePaso2 extends SceneModel {
                 "H11","a2","H11","mas","H11","n3","H11","a3","H11","mas","H11","n4","H11","a4","H11"};
         String[] ecu2={"b","H11","noigual","H11","n1","H11","b1","H11","mas","H11","n2",
                 "H11","b2","H11","mas","H11","n3","H11","b3","H11","mas","H11","n4","H11","b4","H11"};
-        String[] ecu3={"a","H11","igual","H11","ns","H18","as","H71"};
-        String[] ecu4={"b","H11","igual","H11","ns","H18","bs","H71"};
+        String[] ecu3={"a","H11","igual","H11","ns","H18","as","H52"};
+        String[] ecu4={"b","H11","igual","H11","ns","H18","bs","H52"};
 
-        String[] ecu5={"mn","H11","igual","H11","ns","H18"};
-        String[] ecu6={"ma","H11","igual","H11","as","H71"};
-        String[] ecu7={"mb","H11","igual","H11","bs","H71"};
+        String[] ecu5={"mn","H11","igual","H11","ns","H17"};
+        String[] ecu6={"ma","H11","igual","H11","as","H52"};
+        String[] ecu7={"mb","H11","igual","H11","bs","H52"};
 
         String[] ecu8={"a","H11","igual","H11","mn","H11","ma","H11"};
         String[] ecu9={"b","H11","igual","H11","mn","H11","mb","H11"};

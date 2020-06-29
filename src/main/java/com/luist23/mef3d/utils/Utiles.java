@@ -12,7 +12,7 @@ public  class Utiles {
         //System.out.println(a + " "+height+ " "+width);
         Image image = new Image(Utiles.class.getResourceAsStream("../assets/"+ a +".png"));
         ImageView view = new ImageView(image);
-        view.setPreserveRatio(true);
+        view.setPreserveRatio(false);
         view.setFitHeight(height);
         view.setFitWidth(width);
         return view;
