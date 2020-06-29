@@ -28,7 +28,7 @@ public class SceneModelo {
     private Scene scene;
     private ImageView instruccion = new ImageView();
     private final String[] images= {
-            "00","01","02","03","04"//"Modelo_01","Modelo_02","Modelo_03","Modelo_04","Modelo_05"
+            "00","01","02","03","04","xyz","eep"//"Modelo_01","Modelo_02","Modelo_03","Modelo_04","Modelo_05"
     };
     private final String[] titulos= {
             "Geometría",
