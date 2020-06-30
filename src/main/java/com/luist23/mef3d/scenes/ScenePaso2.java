@@ -12,6 +12,23 @@ public class ScenePaso2 extends SceneModel {
         preview=TypeScene.PASO1;
         fondo="background01";
 
+        ArrayList<String[]> formulas = new ArrayList<>();
+        ArrayList<String[]> dimensiones = new ArrayList<>();
+        ArrayList<String[]> descripcion = new ArrayList<>();
+
+        formulas.add(new String[]{
+                "a","noigual","n1","a1","mas","n2",
+                "a2","mas","n3","a3","mas","n4","a4"
+        });
+        dimensiones.add(new String[]{
+                "11","11","11","11","11","11",
+                "11","11","11","11","11","11","11"
+        });
+        descripcion.add(new String[]{
+                "0","0","0","0","0","0",
+                "0","0","0","0","0","0","0"
+        });
+
 
 
         transiciones.add(4);

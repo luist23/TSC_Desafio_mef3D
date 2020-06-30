@@ -4,6 +4,8 @@ import com.sun.xml.internal.fastinfoset.util.CharArray;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToolBar;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -131,10 +133,20 @@ public class SceneModel {
 
         //presentacion.setBackground(Utiles.background(images[flag],scene.getHeight()*0.1,scene.getWidth()*0.1));
 
+        /*
+        Tooltip tooltip = new Tooltip();
+        tooltip.setGraphic(Utiles.imagen("background01",50,75));//tooltip.setX(Mou);
+        subpila.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
 
-        instruccion.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
-            //stage.close();
+            System.out.println("mouse");
+            tooltip.setX(e.getScreenX());
+            tooltip.setY(e.getScreenY());
+            tooltip.show(stage);
         });
+        subpila.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
+            //tooltip.hide();
+        });
+         */
 
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
 
