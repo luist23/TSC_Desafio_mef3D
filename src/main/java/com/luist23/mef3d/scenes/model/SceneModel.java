@@ -1,11 +1,16 @@
 package main.java.com.luist23.mef3d.scenes.model;
 
 import com.sun.xml.internal.fastinfoset.util.CharArray;
+import javafx.beans.value.ChangeListener;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +29,7 @@ import main.java.com.luist23.mef3d.utils.Utiles;
 import java.util.ArrayList;
 
 public class SceneModel {
+    private  Stage stageOwner;
     private HBox presentacion;
     private HBox naveacion;
     private Text titulo;
@@ -38,10 +44,12 @@ public class SceneModel {
     private VBox subpila= new VBox();
     private ArrayList<VBox> pila=new ArrayList<>();
     protected String tituloVentana;
-    protected  ArrayList<String> titulos = new ArrayList<>();
-    protected  ArrayList<ArrayList<String>> subtitulos = new ArrayList<>();
+    protected  String[] titulos;
+    protected  ArrayList<String[]> subtitulos = new ArrayList<>();
     protected  ArrayList<Integer> transiciones = new ArrayList<>();
-    protected ArrayList<ArrayList<ArrayList<String>>> ecuaciones= new ArrayList<>();
+    protected ArrayList<ArrayList<String[]>> formulasC= new ArrayList<>();
+    protected ArrayList<ArrayList<String[]>> dimensionesC= new ArrayList<>();
+    protected ArrayList<ArrayList<String[]>> descripcionC= new ArrayList<>();
     protected String fondo;
     private int flagTrancision = 0;
     private int flagTransicionAux = 0;
@@ -65,6 +73,7 @@ public class SceneModel {
 
     protected void lanzar(Stage stage){
         //inicializar();
+        stageOwner = stage;
         stage.setTitle(tituloVentana);
 
         //botones---------------------------------
@@ -185,7 +194,7 @@ public class SceneModel {
             if (transiciones.get(flagTrancision) == 0) {
 
                 if (flagTrancision > 0) {
-                    subtitulo.setText(subtitulos.get(flagTrancision).get(0));
+                    subtitulo.setText(subtitulos.get(flagTrancision)[0]);
                     presentacion.getChildren().remove(pila.remove(flagTrancision));
 
                     flagTrancision--;
@@ -196,7 +205,7 @@ public class SceneModel {
                 subpila = pila.get(flagTrancision);
                 presentacion.getChildren().add(subpila);
                 //presentacion.getChildren().add(subpila);
-                titulo.setText(titulos.get(flagTrancision));
+                titulo.setText(titulos[flagTrancision]);
 
 
                 //titulo.setText(titulos.get(flagTitulo));
@@ -206,7 +215,7 @@ public class SceneModel {
                 if (flagTransicionAux <= transiciones.get(flagTrancision) && flagTransicionAux != 0) {
 
                     flagTransicionAux--;
-                    subtitulo.setText(subtitulos.get(flagTrancision).get(flagTransicionAux));
+                    subtitulo.setText(subtitulos.get(flagTrancision)[flagTransicionAux]);
                     subpila.getChildren().remove(flagTransicionAux);
 
 
@@ -245,8 +254,8 @@ public class SceneModel {
 
         if(flagTrancision<transiciones.size()){
             if(transiciones.get(flagTrancision)==0){
-                titulo.setText(titulos.get(flagTrancision));
-                subtitulo.setText(subtitulos.get(flagTrancision).get(0));
+                titulo.setText(titulos[flagTrancision]);
+                subtitulo.setText(subtitulos.get(flagTrancision)[0]);
                 //pila.add(subpila);
                 presentacion.getChildren().remove(subpila);
                 subpila = new VBox();
@@ -256,12 +265,13 @@ public class SceneModel {
                 //flagTitulo++;
                 flagTrancision++;
             }else {
-                titulo.setText(titulos.get(flagTrancision));
+                titulo.setText(titulos[flagTrancision]);
                 if (flagTransicionAux < transiciones.get(flagTrancision)) {
                     HBox ecu= new HBox();
-                    subtitulo.setText(subtitulos.get(flagTrancision).get(flagTransicionAux));
-                    //System.out.println("aqui"+flagTransicionAux+"noaux"+flagTrancision);
-                    llenarEcuacion(ecu,ecuaciones.get(flagTrancision).get(flagTransicionAux));
+                    subtitulo.setText(subtitulos.get(flagTrancision)[flagTransicionAux]);
+                    llenarEcuacion(ecu,formulasC.get(flagTrancision).get(flagTransicionAux),
+                            dimensionesC.get(flagTrancision).get(flagTransicionAux),
+                            descripcionC.get(flagTrancision).get(flagTransicionAux));
                     subpila.getChildren().add(ecu);
                     ecu.setAlignment(Pos.CENTER);
                     ecu.autosize();
@@ -288,14 +298,60 @@ public class SceneModel {
         }
     }
 
-    private void llenarEcuacion(HBox ecu,ArrayList<String> list){
-        for (int i = 0; i < list.size(); i++) {
-            //System.out.println(list.get(i));
-            char[] a = list.get(i+1).toCharArray();
-            //System.out.println(list.get(i));
-            ecu.getChildren().add(Utiles.imagen(list.get(i),30 * Integer.parseInt(String.valueOf(a[1]))
-                    ,30 * Integer.parseInt(String.valueOf(a[2]))  ));
-            i++;
+    private void llenarEcuacion(HBox ecu,String[] formula,String[] dimension,String[] evento){
+        ImageView imagen;
+        for (int i = 0; i < formula.length; i++) {
+            imagen = Utiles.imagen(formula[i],30 * Integer.parseInt(String.valueOf(dimension[i].charAt(0)))
+                    ,30 * Integer.parseInt(String.valueOf(dimension[i].charAt(1))));
+
+            if(evento[i]!="0"){
+                int alto = Integer.parseInt(String.valueOf(evento[i].charAt(0)));
+                //evento[i].charAt(0)="";
+                int ancho = Integer.parseInt(String.valueOf(evento[i].charAt(1)));
+                System.out.println("evento: "+evento[i]);
+                Tooltip tooltip = new Tooltip();
+                //tooltip.set
+
+                //ecu.getChildren().add(tooltip);
+                tooltip.setGraphic(Utiles.imagen(evento[i].substring(2),50*alto,75*ancho));//tooltip.setX(Mou);
+                /*imagen.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        tooltip.setX(event.getScreenX());
+                        tooltip.setY(event.getScreenY());
+                        tooltip.show(stageOwner);
+                    }
+                });*/
+                DropShadow ds1 = new DropShadow();
+                ds1.setOffsetY(4.0f);
+                ds1.setOffsetX(4.0f);
+                ds1.setColor(Color.YELLOW);
+                imagen.setEffect(ds1);
+                /*imagen.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+                    if (newValue) {
+
+                        tooltip.show(stageOwner);
+                    } else {
+                        tooltip.hide();
+                    }
+                });
+                 */
+
+                imagen.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
+                    //System.out.println("mouse");
+                    tooltip.setX(e.getScreenX());
+                    tooltip.setY(e.getScreenY());
+                    tooltip.show(stageOwner);
+                    //tooltip.setOnAutoHide((EventHandler<MouseEvent>) event -> tooltip.hide());
+                });
+                imagen.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
+                    //System.out.println("unmouse");
+                    tooltip.hide();
+                });
+
+            };
+
+            ecu.getChildren().add(imagen);
         }
     }
 

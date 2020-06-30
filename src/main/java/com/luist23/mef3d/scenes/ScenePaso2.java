@@ -16,6 +16,13 @@ public class ScenePaso2 extends SceneModel {
         ArrayList<String[]> dimensiones = new ArrayList<>();
         ArrayList<String[]> descripcion = new ArrayList<>();
 
+
+
+
+
+        //Transicion 01 ------------------------------------------------------------------------------------------------
+        transiciones.add(4);
+        //Ecuacion 01*********************************
         formulas.add(new String[]{
                 "a","noigual","n1","a1","mas","n2",
                 "a2","mas","n3","a3","mas","n4","a4"
@@ -28,79 +35,169 @@ public class ScenePaso2 extends SceneModel {
                 "0","0","0","0","0","0",
                 "0","0","0","0","0","0","0"
         });
+        //*********************************************
+        //Ecuacion 02**********************************
+        formulas.add(new String[]{
+                "b","noigual","n1","b1","mas","n2",
+                "b2","mas","n3","b3","mas","n4","b4"
+        });
+        dimensiones.add(new String[]{
+                "11","11","11","11","11","11",
+                "11","11","11","11","11","11","11"
+        });
+        descripcion.add(new String[]{
+                "0","0","0","0","0","0",
+                "0","0","0","0","0","0","0"
+        });
+        //*********************************************
+        //Ecuacion 03**********************************
+        formulas.add(new String[]{
+                "a","igual","ns","as"
+        });
+        dimensiones.add(new String[]{
+                "11","11","18","52"
+        });
+        descripcion.add(new String[]{
+                "0","0","0","0"
+        });
+        //*********************************************
+        //Ecuacion 04**********************************
+        formulas.add(new String[]{
+                "b","igual","ns","bs"
+        });
+        dimensiones.add(new String[]{
+                "11","11","18","52"
+        });
+        descripcion.add(new String[]{
+                "0","0","0","0"
+        });
+        //*********************************************
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
 
 
 
-        transiciones.add(4);
+
+
+
+
+
+
+
+
+        //Transicion 02 ------------------------------------------------------------------------------------------------
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
         transiciones.add(3);
+        //Ecuacion 01*********************************
+        formulas.add(new String[]{
+                "mn","igual","ns"
+        });
+        dimensiones.add(new String[]{
+                "11","11","17"
+        });
+        descripcion.add(new String[]{
+                "0","0","0"
+        });
+        //*********************************************
+        //Ecuacion 02**********************************
+        formulas.add(new String[]{
+                "ma","igual","as"
+        });
+        dimensiones.add(new String[]{
+                "11","11","52"
+        });
+        descripcion.add(new String[]{
+                "0","0","0"
+        });
+        //*********************************************
+        //Ecuacion 03**********************************
+        formulas.add(new String[]{
+                "mb","igual","bs"
+        });
+        dimensiones.add(new String[]{
+                "11","11","52"
+        });
+        descripcion.add(new String[]{
+                "0","0","0"
+        });
+        //*********************************************
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+        //Transicion 03 ------------------------------------------------------------------------------------------------
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
         transiciones.add(2);
+        //Ecuacion 01*********************************
+        formulas.add(new String[]{
+                "a","igual","mn","ma"
+        });
+        dimensiones.add(new String[]{
+                "11","11","11","11"
+        });
+        descripcion.add(new String[]{
+                "0","0","17ns","51as"
+        });
+        //*********************************************
+        //Ecuacion 02**********************************
+        formulas.add(new String[]{
+                "b","igual","mn","mb"
+        });
+        dimensiones.add(new String[]{
+                "11","11","11","11"
+        });
+        descripcion.add(new String[]{
+                "0","0","17ns","51bs"
+        });
+        //*********************************************
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
 
-        String[] ecu1={"a","H11","noigual","H11","n1","H11","a1","H11","mas","H11","n2",
-                "H11","a2","H11","mas","H11","n3","H11","a3","H11","mas","H11","n4","H11","a4","H11"};
-        String[] ecu2={"b","H11","noigual","H11","n1","H11","b1","H11","mas","H11","n2",
-                "H11","b2","H11","mas","H11","n3","H11","b3","H11","mas","H11","n4","H11","b4","H11"};
-        String[] ecu3={"a","H11","igual","H11","ns","H18","as","H52"};
-        String[] ecu4={"b","H11","igual","H11","ns","H18","bs","H52"};
-
-        String[] ecu5={"mn","H11","igual","H11","ns","H17"};
-        String[] ecu6={"ma","H11","igual","H11","as","H52"};
-        String[] ecu7={"mb","H11","igual","H11","bs","H52"};
-
-        String[] ecu8={"a","H11","igual","H11","mn","H11","ma","H11"};
-        String[] ecu9={"b","H11","igual","H11","mn","H11","mb","H11"};
 
 
-        String[] ecuacion =  {
+
+
+
+
+        subtitulos.add(new String[]{
                 "Interpolamos las incognitas A de los 4 nodos con su funcion de forma",
                 "Interpolamos las incognitas B de los 4 nodos con su funcion de forma",
                 "A en forma matricial ",
                 "B en forma matricial ",
-        };
+        });
 
-        String [] subtitulos2 ={
+        subtitulos.add(new String[]{
                 "matriz N",
                 "matriz A",
                 "matriz B"
-        };
+        });
 
-        String [] subtitulos3 ={
+        subtitulos.add(new String[]{
                 "por tanta A",
                 "por tanto B"
-        };
+        });
 
-        String[] titu = {
+        titulos = new String[]{
                 "Interpolación",
                 "matrices",
-                "Definimos A y B",
-                "Definimos las funciones de forma: 2"
+                "Definimos A y B"
         };
 
-        //transiciones
-        llenar(titulos,titu);
-        //llenarArray(subtitulos, new String[]{""});
-        llenarArray(subtitulos,ecuacion);
-        llenarArray(subtitulos,subtitulos2);
-        llenarArray(subtitulos,subtitulos3);
-
-        ArrayList<ArrayList<String>> a=new ArrayList<>();
-        llenarArray(a,ecu1);
-        llenarArray(a,ecu2);
-        llenarArray(a,ecu3);
-        llenarArray(a,ecu4);
-
-        //ArrayList<ArrayList<String>> b=new ArrayList<>();
-        ArrayList<ArrayList<String>> b=new ArrayList<>();
-        llenarArray(b,ecu5);
-        llenarArray(b,ecu6);
-        llenarArray(b,ecu7);
-
-        ArrayList<ArrayList<String>> c=new ArrayList<>();
-        llenarArray(c,ecu8);
-        llenarArray(c,ecu9);
-
-        ecuaciones.add(a);
-        ecuaciones.add(b);
-        ecuaciones.add(c);
 
     }
     public ScenePaso2(Stage stage) {
