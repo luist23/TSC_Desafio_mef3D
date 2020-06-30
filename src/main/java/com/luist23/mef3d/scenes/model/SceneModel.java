@@ -11,6 +11,7 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -35,7 +36,7 @@ public class SceneModel {
     private Text titulo;
     private Text subtitulo;
     private VBox content;
-    private Button siguiente,anterior;
+    private HBox siguiente,anterior;
     protected TypeScene next,preview;
     private Scene scene;
     private ImageView instruccion = new ImageView();
@@ -77,12 +78,19 @@ public class SceneModel {
         stage.setTitle(tituloVentana);
 
         //botones---------------------------------
-        siguiente = new Button("Continuar");
-        anterior = new Button("Retroceder");
-        siguiente.setOnAction(e -> {
+        siguiente= new HBox();
+        anterior= new HBox();
+        siguiente.setPrefHeight(stage.getHeight()*0.2);
+        siguiente.setPrefWidth(stage.getHeight()*0.2*4);
+        anterior.setPrefHeight(stage.getHeight()*0.2);
+        anterior.setPrefWidth(stage.getHeight()*0.2*4);
+        siguiente.setBackground(Utiles.background("navegacion/next",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
+        anterior.setBackground(Utiles.background("navegacion/preview",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
+
+        siguiente.setOnMouseClicked(e -> {
             MainApp.setSceneFactory(next);
         });
-        anterior.setOnAction(e -> {
+        anterior.setOnMouseClicked(e -> {
             MainApp.setSceneFactory(preview);
         });
 
@@ -111,13 +119,13 @@ public class SceneModel {
         content.setAlignment(Pos.CENTER);
         content.setFillWidth(true);
         scene =new Scene(content,stage.getWidth(),stage.getHeight());
-        naveacion.setSpacing(stage.getWidth()/4);
+        naveacion.setSpacing(stage.getWidth()/6);
         naveacion.setAlignment(Pos.CENTER);
         pila.add(subpila);
         presentacion.getChildren().add(subpila);
         subpila.setSpacing(10);
         //------------------------------------------
-        Utiles.animation( instruccion, "teclas",stage.getHeight()*0.2,stage.getWidth()*0.2);
+        Utiles.animation( instruccion, "teclas",stage.getHeight()*0.2,stage.getHeight()*0.2*1.5);
         redimension(stage);
         stage.heightProperty().addListener((obs, oldVal, newVal) -> {
             redimension(stage);
@@ -356,13 +364,19 @@ public class SceneModel {
     }
 
     private void redimension(Stage stage){
-        instruccion.setFitWidth(stage.getWidth()*0.1);
-        instruccion.setFitHeight(stage.getHeight()*0.1);
+        naveacion.setPrefHeight(stage.getHeight()*0.2);
+        siguiente.setPrefHeight(stage.getHeight()*0.2);
+        siguiente.setPrefWidth(stage.getHeight()*0.2*4);
+        anterior.setPrefHeight(stage.getHeight()*0.2);
+        anterior.setPrefWidth(stage.getHeight()*0.2*4);
+        instruccion.setFitWidth(stage.getWidth()*0.2);
+        instruccion.setFitHeight(stage.getHeight()*0.2*1.5);
+
         content.setPrefHeight(stage.getHeight());
         titulo.prefHeight(stage.getHeight()*0.1);
         subtitulo.prefHeight(stage.getHeight()*0.1);
-        presentacion.setPrefHeight(stage.getHeight()*0.7);
-        naveacion.setPrefHeight(stage.getHeight()*0.1);
+        presentacion.setPrefHeight(stage.getHeight()*0.6);
+
     }
 
     public Scene getScene(){
