@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
@@ -15,6 +16,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -31,7 +34,7 @@ import java.util.ArrayList;
 
 public class SceneModel {
     private  Stage stageOwner;
-    private HBox presentacion;
+    private ScrollPane presentacion = new ScrollPane();
     private HBox naveacion;
     private Text titulo;
     private Text subtitulo;
@@ -111,18 +114,30 @@ public class SceneModel {
         //-----------------------------------------
         //iniciando contenedores-------------------
         //instruccion = Utiles.animation("teclas",stage.getHeight()*0.1,stage.getWidth()*0.1);
-        presentacion= new HBox();
-        presentacion.setAlignment(Pos.CENTER);
+        //HBox p= new HBox();
+
         //presentacion.setFillWidth(true);
         naveacion = new HBox(anterior,instruccion,siguiente);
         content = new VBox(titulo,subtitulo,presentacion,naveacion);
         content.setAlignment(Pos.CENTER);
         content.setFillWidth(true);
         scene =new Scene(content,stage.getWidth(),stage.getHeight());
-        naveacion.setSpacing(stage.getWidth()/6);
+        naveacion.setSpacing(15);
         naveacion.setAlignment(Pos.CENTER);
+
+        subpila.setAlignment(Pos.CENTER);
+        presentacion.setFitToWidth(true);
+        /*presentacion.setStyle(
+                "-fx-background-color: transparent;"+
+                        "-fx-control-inner-background: transparent;");*/
+        //subpila.setBackground(new Background(new BackgroundFill(Color.AZURE, null, null)) );
+        //presentacion.setBackground(new Background(new BackgroundFill(Color.AZURE, null, null))        );
+        presentacion.setStyle("-fx-background: transparent;\n -fx-background-color: transparent");
+        presentacion.setContent(subpila);
+
         pila.add(subpila);
-        presentacion.getChildren().add(subpila);
+        //presentacion.pre
+        //presentacion.getContent().add(subpila);
         subpila.setSpacing(10);
         //------------------------------------------
         Utiles.animation( instruccion, "teclas",stage.getHeight()*0.2,stage.getHeight()*0.2*1.5);
@@ -203,15 +218,14 @@ public class SceneModel {
 
                 if (flagTrancision > 0) {
                     subtitulo.setText(subtitulos.get(flagTrancision)[0]);
-                    presentacion.getChildren().remove(pila.remove(flagTrancision));
-
+                    pila.remove(flagTrancision);
                     flagTrancision--;
                     flagTransicionAux = transiciones.get(flagTrancision);
                 }
 
 
                 subpila = pila.get(flagTrancision);
-                presentacion.getChildren().add(subpila);
+                presentacion.setContent(subpila);
                 //presentacion.getChildren().add(subpila);
                 titulo.setText(titulos[flagTrancision]);
 
@@ -229,11 +243,11 @@ public class SceneModel {
 
                     if (flagTransicionAux == 0 && flagTrancision != 0) {
                         if (flagTrancision > 0) {
-                            presentacion.getChildren().remove(pila.remove(flagTrancision));
+                            pila.remove(flagTrancision);
                             flagTrancision--;
                             flagTransicionAux = transiciones.get(flagTrancision);
                             subpila = pila.get(flagTrancision);
-                            presentacion.getChildren().add(subpila);
+                            presentacion.setContent(subpila);
                             regresar();
                         }
 
@@ -265,11 +279,11 @@ public class SceneModel {
                 titulo.setText(titulos[flagTrancision]);
                 subtitulo.setText(subtitulos.get(flagTrancision)[0]);
                 //pila.add(subpila);
-                presentacion.getChildren().remove(subpila);
+                //presentacion.getChildren().remove(subpila);
                 subpila = new VBox();
                 subpila.setSpacing(10);
                 pila.add(subpila);
-                presentacion.getChildren().add(subpila);
+                presentacion.setContent(subpila);
                 //flagTitulo++;
                 flagTrancision++;
             }else {
@@ -291,11 +305,11 @@ public class SceneModel {
 
                     flagTrancision++;
                     if(transiciones.size()>flagTrancision){
-                        presentacion.getChildren().remove(subpila);
+                        //presentacion.getChildren().remove(subpila);
                         subpila = new VBox();
                         subpila.setSpacing(10);
                         pila.add(subpila);
-                        presentacion.getChildren().add(subpila);
+                        presentacion.setContent(subpila);
                     }
                     flagTransicionAux=0;
                     comenzar();

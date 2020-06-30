@@ -23,7 +23,7 @@ public class SceneModelo {
     private Text titulo;
     private Text subtitulo;
     private VBox content;
-    private Button siguiente,anterior;
+    private HBox siguiente,anterior;
     private TypeScene next,preview;
     private Scene scene;
     private ImageView instruccion = new ImageView();
@@ -46,15 +46,21 @@ public class SceneModelo {
         preview=TypeScene.STAGE2;
 
         //botones---------------------------------
-        siguiente = new Button("Continuar");
-        anterior = new Button("Retroceder");
-        siguiente.setOnAction(e -> {
+        siguiente= new HBox();
+        anterior= new HBox();
+        siguiente.setPrefHeight(stage.getHeight()*0.2);
+        siguiente.setPrefWidth(stage.getHeight()*0.2*4);
+        anterior.setPrefHeight(stage.getHeight()*0.2);
+        anterior.setPrefWidth(stage.getHeight()*0.2*4);
+        siguiente.setBackground(Utiles.background("navegacion/next",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
+        anterior.setBackground(Utiles.background("navegacion/preview",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
+
+        siguiente.setOnMouseClicked(e -> {
             MainApp.setSceneFactory(next);
         });
-        anterior.setOnAction(e -> {
+        anterior.setOnMouseClicked(e -> {
             MainApp.setSceneFactory(preview);
         });
-
         //-----------------------------------------
         //Mensaje ---------------------------------
         titulo= new Text();
@@ -76,7 +82,7 @@ public class SceneModelo {
         content = new VBox(titulo,subtitulo,presentacion,naveacion);
         content.setAlignment(Pos.CENTER);
         scene =new Scene(content,stage.getWidth(),stage.getHeight());
-        naveacion.setSpacing(stage.getWidth()/4);
+        naveacion.setSpacing(15);
         naveacion.setAlignment(Pos.CENTER);
         //------------------------------------------
 
@@ -93,10 +99,10 @@ public class SceneModelo {
         //hBox.setPrefHeight(content.getHeight()*0.9);
         //naveacion.setPrefHeight(stage.getHeight()*0.1);
 
-        Utiles.animation( instruccion, "teclas",stage.getHeight()*0.1,stage.getWidth()*0.1);
+        Utiles.animation( instruccion, "teclas",stage.getHeight()*0.2,stage.getHeight()*0.2*1.5);
         //presentacion.getChildren().addAll(imageView);
 
-        presentacion.setBackground(Utiles.background(images[flag],presentacion.getPrefHeight(),presentacion.getPrefWidth()));
+        presentacion.setBackground(Utiles.background(images[flag],stage.getHeight()*0.6,presentacion.getPrefWidth()));
         //presentacion.getChildren().add(Utiles.imagen(images[flag], presentacion.getPrefHeight(),presentacion.getPrefWidth()));
         /*
         imageView.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
@@ -137,19 +143,24 @@ public class SceneModelo {
 
             }
             subtitulo.setText(titulos[flag]);
-            presentacion.setBackground(Utiles.background(images[flag],presentacion.getHeight(),presentacion.getWidth()));
+            presentacion.setBackground(Utiles.background(images[flag],stage.getHeight()*0.6,presentacion.getWidth()));
 
         });
     }
 
     private void redimension(Stage stage){
-        instruccion.setFitWidth(stage.getWidth()*0.1);
-        instruccion.setFitHeight(stage.getHeight()*0.1);
+        naveacion.setPrefHeight(stage.getHeight()*0.2);
+        siguiente.setPrefHeight(stage.getHeight()*0.2);
+        siguiente.setPrefWidth(stage.getHeight()*0.2*4);
+        anterior.setPrefHeight(stage.getHeight()*0.2);
+        anterior.setPrefWidth(stage.getHeight()*0.2*4);
+        instruccion.setFitWidth(stage.getWidth()*0.2);
+        instruccion.setFitHeight(stage.getHeight()*0.2*1.5);
+
         content.setPrefHeight(stage.getHeight());
         titulo.prefHeight(stage.getHeight()*0.1);
         subtitulo.prefHeight(stage.getHeight()*0.1);
-        presentacion.setPrefHeight(stage.getHeight()*0.7);
-        naveacion.setPrefHeight(stage.getHeight()*0.1);
+        presentacion.setPrefHeight(stage.getHeight()*0.6);
     }
 
     public Scene getScene(){
