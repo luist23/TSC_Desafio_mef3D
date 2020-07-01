@@ -3,17 +3,19 @@ package main.java.com.luist23.mef3d.scenes;
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.scenes.model.SceneModel;
 import main.java.com.luist23.mef3d.utils.FormulasUtil;
+import main.java.com.luist23.mef3d.utils.MatricesUtil;
 
 import java.util.ArrayList;
 
-public class ScenePaso6 extends SceneModel {
+public class SceneMatrizComponent extends SceneModel {
     public void inicializar(){
         tituloVentana = "Paso VI";
-        next=TypeScene.MATRICES;
-        preview=TypeScene.PASO5;
+        next=TypeScene.ENSAMBLAJE;
+        preview=TypeScene.PASO6;
         fondo="background01";
 
         FormulasUtil f= new FormulasUtil();
+        MatricesUtil m= new MatricesUtil();
         ArrayList<ArrayList<String>> formulas;
         ArrayList<ArrayList<String>> dimensiones;
         ArrayList<ArrayList<String>> descripcion;
@@ -26,67 +28,72 @@ public class ScenePaso6 extends SceneModel {
         descripcion=new ArrayList<>();
         transiciones.add(6);
 
-        //Ecuacion 01*********************************tomamos D
+        //Ecuacion 01*********************************
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
 
-        f.d(a,b,c);
+        m.gradienteXN(a,b,c);
         f.igual(a,b,c);
-        //D
-        f.integral(a,b,c);//SS
-        f.ntrasnpuesta(a,b,c);//nt
-        f.x(a,b,c);//x y gradiente^2 ( N B ) +
-        f.y(a,b,c);
-        f.gradiente2(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
-        f.integral2(a,b,c);//dv
-        //fin D
+        m.gradienteEXIn(a,b,c);
+        m.gradienteEN(a,b,c);
+
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-        //Ecuacion 02*********************************la vaca
+        //Ecuacion 02*********************************
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
         //------------------
-        f.vaca(a,b,c);
+        m.gradienteX(a,b,c);
+        f.igual(a,b,c);
+        m.gradienteXMatriz(a,b,c);
+        f.espacio(a,b,c);
+        f.espacio(a,b,c);
+
+        m.gradienteE(a,b,c);
+        f.igual(a,b,c);
+        m.gradienteEMatriz(a,b,c);
+        f.espacio(a,b,c);
+        f.espacio(a,b,c);
+
+        m.x(a,b,c);
+        f.igual(a,b,c);
+        m.xMatriz(a,b,c);
+
         //-----------------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
 
-        //Ecuacion 03*********************************definimos u
+        //Ecuacion 03*********************************
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
 
-        f.u(a,b,c);
-        f.igual(a,b,c);
-        f.ntrasnpuesta(a,b,c);//SS
+        m.xyz(a,b,c);
 
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-        //Ecuacion 04*********************************definimos du
+        //Ecuacion 04*********************************
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
 
-        f.du(a,b,c);
+        m.gradienteEN(a,b,c);
         f.igual(a,b,c);
-        f.gradiente(a,b,c);
-        f.ntrasnpuesta(a,b,c);//SS
+        m.gradienteEMatriz(a,b,c);
+        f.mn(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
 
-        //Ecuacion 05*********************************definimos dv
+        //Ecuacion 05*********************************
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
@@ -615,7 +622,7 @@ public class ScenePaso6 extends SceneModel {
 
 
     }
-    public ScenePaso6(Stage stage) {
+    public SceneMatrizComponent(Stage stage) {
         inicializar();
         lanzar(stage);
         //super(stage);
