@@ -442,46 +442,47 @@ public class ScenePaso5 extends SceneModel {
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-        //SSS nt [  -
-        //f.corchete1(a,b,c);
-        //f.menos(a,b,c);
+
         f.corchete1(a,b,c);//[
+        //C
         f.integral(a,b,c);//SS
         f.ntrasnpuesta(a,b,c);//nt
-        //x gradiente( N A ) -
-        f.x(a,b,c);
+        f.x(a,b,c);//x gradiente( N A ) -
         f.gradiente(a,b,c);
         f.parentesis1(a,b,c);
         f.mn(a,b,c);
         f.parentesis2(a,b,c);
         f.integral2(a,b,c);//dv
+        //fin C
         f.corchete2(a,b,c);//]
         f.ma(a,b,c);
+
         f.mas(a,b,c);
+
         f.corchete1(a,b,c);//[
+        //D
         f.integral(a,b,c);//SS
         f.ntrasnpuesta(a,b,c);//nt
-        //x y gradiente^2 ( N B ) +
-        f.x(a,b,c);
+        f.x(a,b,c);//x y gradiente^2 ( N B ) +
         f.y(a,b,c);
         f.gradiente2(a,b,c);
         f.parentesis1(a,b,c);
         f.mn(a,b,c);
         f.parentesis2(a,b,c);
         f.integral2(a,b,c);//dv
+        //fin D
         f.corchete2(a,b,c);//]
         f.mb(a,b,c);
+
         f.igual(a,b,c);
+
+        //f
         f.cons1(a,b,c);
         f.integral(a,b,c);//SS
         f.ntrasnpuesta(a,b,c);//nt
-        // 78.4  ] dv = 0
-
-        //f.corchete2(a,b,c);
         f.integral2(a,b,c);//dv
-        //f.igual(a,b,c);
-        //f.cero(a,b,c);
-        //-----------
+        //fin f
+
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
@@ -489,46 +490,46 @@ public class ScenePaso5 extends SceneModel {
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-        //SSS nt [  -
-        //f.integral(a,b,c);
-        //f.corchete1(a,b,c);
-        //f.menos(a,b,c);
+
         f.corchete1(a,b,c);//[
+        //E
         f.integral(a,b,c);//SS
         f.ntrasnpuesta(a,b,c);//nt
-        //y gradiente^2 ( N A ) -
-        f.y(a,b,c);
+        f.y(a,b,c);        //y gradiente^2 ( N A ) -
         f.gradiente2(a,b,c);
         f.parentesis1(a,b,c);
         f.mn(a,b,c);
         f.parentesis2(a,b,c);
         f.integral2(a,b,c);//dv
+        //fin E
         f.corchete2(a,b,c);//]
         f.ma(a,b,c);
+
         f.mas(a,b,c);
+
         f.corchete1(a,b,c);//[
+        //G
         f.integral(a,b,c);//SS
         f.ntrasnpuesta(a,b,c);//nt
-        //x  gradiente ( N B ) +
-        f.x(a,b,c);
+        f.x(a,b,c);//x  gradiente ( N B ) +
         f.gradiente(a,b,c);
         f.parentesis1(a,b,c);
         f.mn(a,b,c);
         f.parentesis2(a,b,c);
         f.integral2(a,b,c);//dv
+        //fin G
         f.corchete2(a,b,c);//]
         f.mb(a,b,c);
-        f.igual(a,b,c);
+
+        f.igual(a,b,c);//=
+
+        //h
         f.cons2(a,b,c);
         f.integral(a,b,c);//SS
         f.ntrasnpuesta(a,b,c);//nt
-        // 94.7  ] dv = 0
-
-        //f.corchete2(a,b,c);
         f.integral2(a,b,c);//dv
-        //f.igual(a,b,c);
-        //f.cero(a,b,c);
-        //-----------
+        //fin h
+
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);

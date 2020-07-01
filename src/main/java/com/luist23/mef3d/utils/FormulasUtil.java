@@ -16,6 +16,37 @@ public class FormulasUtil {
         b.add("21");
         c.add("0");
     }
+
+    public void contorno(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/contorno");
+        b.add("21");
+        c.add("0");
+    }
+
+    public void u(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/u");
+        b.add("11");
+        c.add("0");
+    }
+    public void v(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/v");
+        b.add("11");
+        c.add("0");
+    }
+    public void vaca(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/vaca1");
+        b.add("25");
+        c.add("0");
+        a.add("agrupador/vaca2");
+        b.add("28");
+        c.add("0");
+    }
+    public void du(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/du");
+        b.add("12");
+        c.add("0");
+    }
+
     public void residuo1(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("residuo1");
         b.add("11");
@@ -202,6 +233,42 @@ public class FormulasUtil {
         b.add("21");
         c.add("0");
     }
+    public void corchete41(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/corchete41");
+        b.add("21");
+        c.add("0");
+    }
+    public void corchete42(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/corchete42");
+        b.add("21");
+        c.add("0");
+    }
+    public void corchete44(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/corchete44");
+        b.add("21");
+        c.add("0");
+    }
+    public void corchete43(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/corchete43");
+        b.add("21");
+        c.add("0");
+    }
+    public void corchete45(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/corchete45");
+        b.add("21");
+        c.add("0");
+    }
+    public void corchete46(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/corchete46");
+        b.add("21");
+        c.add("0");
+    }
+    public void espacio(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("agrupador/espacio");
+        b.add("21");
+        c.add("0");
+    }
+
     public void corchete2(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("agrupador/corchete2");
         b.add("21");
@@ -219,8 +286,23 @@ public class FormulasUtil {
         c.add("0");
     }
 
+    public void k(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/k");
+        b.add("11");
+        c.add("0");
+    }
+    public void j(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/j");
+        b.add("11");
+        c.add("0");
+    }
     public void f(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("abreviaciones/f");
+        b.add("11");
+        c.add("0");
+    }
+    public void phi(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/phi");
         b.add("11");
         c.add("0");
     }
