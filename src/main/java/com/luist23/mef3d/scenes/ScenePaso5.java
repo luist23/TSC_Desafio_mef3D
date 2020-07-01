@@ -61,7 +61,7 @@ public class ScenePaso5 extends SceneModel {
         //--------------------------------------------------------------------------------------------------------------
 
 
-
+        //transicion 2
         formulas=new ArrayList<>();
         dimensiones=new ArrayList<>();
         descripcion=new ArrayList<>();
@@ -120,9 +120,8 @@ public class ScenePaso5 extends SceneModel {
         f.ma(a,b,c);
         f.parentesis2(a,b,c);
         f.menos(a,b,c);
-        //x y gradiente ( N B ) +
+        //x  gradiente ( N B ) +
         f.x(a,b,c);
-        f.y(a,b,c);
         f.gradiente(a,b,c);
         f.parentesis1(a,b,c);
         f.mn(a,b,c);
@@ -146,6 +145,446 @@ public class ScenePaso5 extends SceneModel {
         //--------------------------------------------------------------------------------------------------------------
 
 
+        //trancicion 3----sitribuyendo pesos (N^t)
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(2);
+
+        //Ecuancion 01********
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //SSS nt [  -
+        f.integral(a,b,c);
+        f.corchete1(a,b,c);
+        f.menos(a,b,c);
+        f.ntrasnpuesta(a,b,c);//nt
+        //x gradiente( N A ) -
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.menos(a,b,c);
+        f.ntrasnpuesta(a,b,c);//nt
+        //x y gradiente^2 ( N B ) +
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+        f.ntrasnpuesta(a,b,c);//nt
+        // 78.4  ] dv = 0
+        f.cons1(a,b,c);
+        f.corchete2(a,b,c);
+        f.integral2(a,b,c);
+        f.igual(a,b,c);
+        f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //SSS nt [  -
+        f.integral(a,b,c);
+        f.corchete1(a,b,c);
+        f.menos(a,b,c);
+        f.ntrasnpuesta(a,b,c);//nt
+        //y gradiente^2 ( N A ) -
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.menos(a,b,c);
+        f.ntrasnpuesta(a,b,c);//nt
+        //x  gradiente ( N B ) +
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+        f.ntrasnpuesta(a,b,c);//nt
+        // 94.7  ] dv = 0
+        f.cons2(a,b,c);
+        f.corchete2(a,b,c);
+        f.integral2(a,b,c);
+        f.igual(a,b,c);
+        f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+
+
+
+
+        //trancicion 4----ditribuyendo integrales
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(2);
+
+        //Ecuancion 01********
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //SSS nt [  -
+        //f.corchete1(a,b,c);
+        f.menos(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x gradiente( N A ) -
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        f.menos(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x y gradiente^2 ( N B ) +
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        f.mas(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        // 78.4  ] dv = 0
+        f.cons1(a,b,c);
+        //f.corchete2(a,b,c);
+        f.integral2(a,b,c);
+        f.igual(a,b,c);
+        f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //SSS nt [  -
+        //f.integral(a,b,c);
+        //f.corchete1(a,b,c);
+        f.menos(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //y gradiente^2 ( N A ) -
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);
+        f.menos(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x  gradiente ( N B ) +
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);
+        f.mas(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        // 94.7  ] dv = 0
+        f.cons2(a,b,c);
+        //f.corchete2(a,b,c);
+        f.integral2(a,b,c);
+        f.igual(a,b,c);
+        f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+
+
+
+
+        //trancicion 5----volviendo a forma original
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(2);
+
+        //Ecuancion 01********
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //SSS nt [  -
+        //f.corchete1(a,b,c);
+        //f.menos(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x gradiente( N A ) -
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        f.mas(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x y gradiente^2 ( N B ) +
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        f.igual(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        // 78.4  ] dv = 0
+        f.cons1(a,b,c);
+        //f.corchete2(a,b,c);
+        f.integral2(a,b,c);
+        //f.igual(a,b,c);
+        //f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //SSS nt [  -
+        //f.integral(a,b,c);
+        //f.corchete1(a,b,c);
+        //f.menos(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //y gradiente^2 ( N A ) -
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);
+        f.mas(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x  gradiente ( N B ) +
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);
+        f.igual(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        // 94.7  ] dv = 0
+        f.cons2(a,b,c);
+        //f.corchete2(a,b,c);
+        f.integral2(a,b,c);
+        //f.igual(a,b,c);
+        //f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+
+
+
+        //trancicion 6---- extrayendo A y B constantes
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(2);
+
+        //Ecuancion 01********
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //SSS nt [  -
+        //f.corchete1(a,b,c);
+        //f.menos(a,b,c);
+        f.corchete1(a,b,c);//[
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x gradiente( N A ) -
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        f.corchete2(a,b,c);//]
+        f.ma(a,b,c);
+        f.mas(a,b,c);
+        f.corchete1(a,b,c);//[
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x y gradiente^2 ( N B ) +
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        f.corchete2(a,b,c);//]
+        f.mb(a,b,c);
+        f.igual(a,b,c);
+        f.cons1(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        // 78.4  ] dv = 0
+
+        //f.corchete2(a,b,c);
+        f.integral2(a,b,c);//dv
+        //f.igual(a,b,c);
+        //f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //SSS nt [  -
+        //f.integral(a,b,c);
+        //f.corchete1(a,b,c);
+        //f.menos(a,b,c);
+        f.corchete1(a,b,c);//[
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //y gradiente^2 ( N A ) -
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        f.corchete2(a,b,c);//]
+        f.ma(a,b,c);
+        f.mas(a,b,c);
+        f.corchete1(a,b,c);//[
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //x  gradiente ( N B ) +
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        f.corchete2(a,b,c);//]
+        f.mb(a,b,c);
+        f.igual(a,b,c);
+        f.cons2(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        // 94.7  ] dv = 0
+
+        //f.corchete2(a,b,c);
+        f.integral2(a,b,c);//dv
+        //f.igual(a,b,c);
+        //f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+
+
+        //trancicion 7---- forma fuerte
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(2);
+
+        //Ecuancion 01********
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.c(a,b,c);
+        f.ma(a,b,c);
+        f.mas(a,b,c);
+        f.d(a,b,c);//D
+        f.mb(a,b,c);
+        f.igual(a,b,c);
+
+        f.f(a,b,c);
+        //f.cero(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.e(a,b,c);
+        f.ma(a,b,c);
+        f.mas(a,b,c);
+        f.g(a,b,c);//D
+        f.mb(a,b,c);
+        f.igual(a,b,c);
+
+        f.h(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+
+
         subtitulos.add(new String[]{
                 "sustituyendo peso al residuo 1",
                 "sustituyendo peso al residuo 2",
@@ -155,11 +594,37 @@ public class ScenePaso5 extends SceneModel {
                 "sustituyendo residuo 1",
                 "sustituyendo residuo 2",
         });
+        subtitulos.add(new String[]{
+                "Distribuyendo en eq.1",
+                "Distribuyendo en eq.2",
+        });
+
+        subtitulos.add(new String[]{
+                "Distribuyendo en eq.1",
+                "Distribuyendo en eq.2",
+        });
+        subtitulos.add(new String[]{
+                "Aplicando en eq.1",
+                "Aplicando en eq.2",
+        });
+        subtitulos.add(new String[]{
+                "Aplicando en eq.1",
+                "Aplicando en eq.2",
+        });
+        subtitulos.add(new String[]{
+                "Renombrando integrales en eq.1",
+                "Renombrando integrales en eq.2",
+        });
 
 
         titulos = new String[]{
                 "Para nuestros pesos no nos complicamos y tomamos la matriz N y la trasponemos",
-                "Sustituimos los residuos"
+                "Sustituimos los residuos",
+                "Distibuyendo matriz N transpuesta",
+                "Distribuyendo integrales",
+                "Regresando a la foma original",
+                "Extrayendo Constantes",
+                "Construyendo la 'Forma fuerte'"
         };
 
 

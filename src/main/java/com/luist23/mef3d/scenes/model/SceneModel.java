@@ -103,10 +103,10 @@ public class SceneModel {
         subtitulo= new Text();
         titulo.setTextAlignment(TextAlignment.CENTER);
         titulo.setFill(Color.RED);
-        titulo.setFont(Font.font(null, FontWeight.BOLD, 23));
+        titulo.setFont(Font.font(null, FontWeight.BOLD, 18));
         subtitulo.setTextAlignment(TextAlignment.CENTER);
         subtitulo.setFill(Color.BLUE);
-        subtitulo.setFont(Font.font(null, FontWeight.BOLD, 18));
+        subtitulo.setFont(Font.font(null, FontWeight.BOLD, 14));
 
 
 

@@ -9,7 +9,7 @@ public class FormulasUtil {
     public void ntrasnpuesta(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("matriz/nt");
         b.add("11");
-        c.add("52matriz/nt");
+        c.add("52cmatriz/mnt");
     }
     public void integral(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("agrupador/integral");
@@ -163,12 +163,12 @@ public class FormulasUtil {
     }
     public void cons1(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("igualdad1");
-        b.add("14");
+        b.add("13");
         c.add("0");
     }
     public void cons2(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
-        a.add("igualdad1");
-        b.add("14");
+        a.add("igualdad2");
+        b.add("13");
         c.add("0");
     }
     public void gradiente2(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
@@ -199,12 +199,12 @@ public class FormulasUtil {
 
     public void corchete1(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("agrupador/corchete1");
-        b.add("11");
+        b.add("21");
         c.add("0");
     }
     public void corchete2(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("agrupador/corchete2");
-        b.add("11");
+        b.add("21");
         c.add("0");
     }
 
@@ -219,6 +219,36 @@ public class FormulasUtil {
         c.add("0");
     }
 
+    public void f(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/f");
+        b.add("11");
+        c.add("0");
+    }
+    public void c(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/c");
+        b.add("11");
+        c.add("0");
+    }
+    public void d(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/d");
+        b.add("11");
+        c.add("0");
+    }
+    public void e(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/e");
+        b.add("11");
+        c.add("0");
+    }
+    public void g(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/g");
+        b.add("11");
+        c.add("0");
+    }
+    public void h(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
+        a.add("abreviaciones/h");
+        b.add("11");
+        c.add("0");
+    }
     public void mn(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("mn");
         b.add("11");
@@ -232,7 +262,7 @@ public class FormulasUtil {
     public void mb(ArrayList<String> a,ArrayList<String> b,ArrayList<String> c){
         a.add("mb");
         b.add("11");
-        c.add("51as");
+        c.add("51bs");
     }
 
 

@@ -31,6 +31,8 @@ public class Escene01 {
 
         hBox= new VBox(mensaje,button);
         hBox.setAlignment(Pos.BOTTOM_CENTER);
+        stage.setHeight(500);
+        stage.setWidth(700);
         hBox.setPrefHeight(150.0);
         //hBox.getChildren().addAll(Utiles.imagen("background01",hBox.getPrefHeight(),hBox.getWidth()));
         hBox.setBackground(Utiles.background("background01",hBox.getHeight(),hBox.getWidth()));
