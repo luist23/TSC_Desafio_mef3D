@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ScenePaso4 extends SceneModel {
     public void inicializar(){
-        tituloVentana = "Paso II";
+        tituloVentana = "Paso IV";
         next=TypeScene.PASO5;
         preview=TypeScene.PASO3;
         fondo="background01";

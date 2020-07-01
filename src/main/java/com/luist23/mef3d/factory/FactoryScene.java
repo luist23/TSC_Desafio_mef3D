@@ -32,6 +32,9 @@ public class FactoryScene {
             case PASO3:
                 ScenePaso3 scenePaso3= new ScenePaso3(stage);
                 return scenePaso3.getScene();
+            case PASO4:
+                ScenePaso4 scenePaso4= new ScenePaso4(stage);
+                return scenePaso4.getScene();
         }
         return null;
     }

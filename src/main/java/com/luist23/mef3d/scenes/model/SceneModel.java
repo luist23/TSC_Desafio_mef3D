@@ -51,9 +51,9 @@ public class SceneModel {
     protected  String[] titulos;
     protected  ArrayList<String[]> subtitulos = new ArrayList<>();
     protected  ArrayList<Integer> transiciones = new ArrayList<>();
-    protected ArrayList<ArrayList<String[]>> formulasC= new ArrayList<>();
-    protected ArrayList<ArrayList<String[]>> dimensionesC= new ArrayList<>();
-    protected ArrayList<ArrayList<String[]>> descripcionC= new ArrayList<>();
+    protected ArrayList<ArrayList<ArrayList<String>>> formulasC= new ArrayList<>();
+    protected ArrayList<ArrayList<ArrayList<String>>> dimensionesC= new ArrayList<>();
+    protected ArrayList<ArrayList<ArrayList<String>>> descripcionC= new ArrayList<>();
     protected String fondo;
     private int flagTrancision = 0;
     private int flagTransicionAux = 0;
@@ -124,6 +124,8 @@ public class SceneModel {
         scene =new Scene(content,stage.getWidth(),stage.getHeight());
         naveacion.setSpacing(15);
         naveacion.setAlignment(Pos.CENTER);
+
+        titulo.setText(stage.getTitle());
 
         subpila.setAlignment(Pos.CENTER);
         presentacion.setFitToWidth(true);
@@ -320,22 +322,22 @@ public class SceneModel {
         }
     }
 
-    private void llenarEcuacion(HBox ecu,String[] formula,String[] dimension,String[] evento){
+    private void llenarEcuacion(HBox ecu,ArrayList<String> formula,ArrayList<String> dimension,ArrayList<String> evento){
         ImageView imagen;
-        for (int i = 0; i < formula.length; i++) {
-            imagen = Utiles.imagen(formula[i],30 * Integer.parseInt(String.valueOf(dimension[i].charAt(0)))
-                    ,30 * Integer.parseInt(String.valueOf(dimension[i].charAt(1))));
+        for (int i = 0; i < formula.size(); i++) {
+            imagen = Utiles.imagen(formula.get(i),30 * Integer.parseInt(String.valueOf(dimension.get(i).charAt(0)))
+                    ,30 * Integer.parseInt(String.valueOf(dimension.get(i).charAt(1))));
 
-            if(evento[i]!="0"){
-                int alto = Integer.parseInt(String.valueOf(evento[i].charAt(0)));
+            if(evento.get(i)!="0"){
+                int alto = Integer.parseInt(String.valueOf(evento.get(i).charAt(0)));
                 //evento[i].charAt(0)="";
-                int ancho = Integer.parseInt(String.valueOf(evento[i].charAt(1)));
-                System.out.println("evento: "+evento[i]);
+                int ancho = Integer.parseInt(String.valueOf(evento.get(i).charAt(1)));
+                System.out.println("evento: "+evento.get(i));
                 Tooltip tooltip = new Tooltip();
                 //tooltip.set
 
                 //ecu.getChildren().add(tooltip);
-                tooltip.setGraphic(Utiles.imagen(evento[i].substring(2),50*alto,75*ancho));//tooltip.setX(Mou);
+                tooltip.setGraphic(Utiles.imagen(evento.get(i).substring(2),50*alto,75*ancho));//tooltip.setX(Mou);
                 /*imagen.setOnMouseEntered(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
