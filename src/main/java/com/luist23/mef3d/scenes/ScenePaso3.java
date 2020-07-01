@@ -2,6 +2,7 @@ package main.java.com.luist23.mef3d.scenes;
 
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.scenes.model.SceneModel;
+import main.java.com.luist23.mef3d.utils.FormulasUtil;
 
 import java.util.ArrayList;
 
@@ -12,59 +13,71 @@ public class ScenePaso3 extends SceneModel {
         preview=TypeScene.PASO2;
         fondo="background01";
 
-        ArrayList<String[]> formulas = new ArrayList<>();
-        ArrayList<String[]> dimensiones = new ArrayList<>();
-        ArrayList<String[]> descripcion = new ArrayList<>();
+        FormulasUtil f= new FormulasUtil();
+        ArrayList<ArrayList<String>> formulas;
+        ArrayList<ArrayList<String>> dimensiones;
+        ArrayList<ArrayList<String>> descripcion;
+        ArrayList<String> a;
+        ArrayList<String> b;
+        ArrayList<String> c;
 
         //Transicion 01 ------------------------------------------------------------------------------------------------
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
         transiciones.add(2);
         //Ecuacion 01*********************************
-        formulas.add(new String[]{
-                "x", "gradiente", "parentesis1", "a", "parentesis2",//x*gradiente(A)
-                "mas",//+
-                "x", "y", "gradiente2", "parentesis1", "b", "parentesis2",//xy*gradiente^2(B)
-                "igual",//=
-                "igualdad1"//78.4
-        });
-        dimensiones.add(new String[]{
-                "11","11","11","11","11",
-                "11",
-                "11","11","11","11","11","11",
-                "11",
-                "14"
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
 
-        });
-        descripcion.add(new String[]{
-                "0","0","0","0","0",
-                "0",
-                "0","0","0","0","0","0",
-                "0",
-                "0"
-        });
+        //x gradiente ( a ) +
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.var1(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+
+        //x y gradiente^2 ( b ) = 78.4
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.var2(a,b,c);
+        f.parentesis2(a,b,c);
+        f.igual(a,b,c);
+        f.cons1(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 02**********************************
-        formulas.add(new String[]{
-                "y", "gradiente2", "parentesis1", "a","parentesis2",//y*gradiente^2(A)
-                "mas",//+
-                "x", "gradiente", "parentesis1", "b", "parentesis2",//x*gradiente(B)
-                "igual",//=
-                "igualdad2"//94.7
-        });
-        dimensiones.add(new String[]{
-                "11","11","11","11","11",
-                "11",
-                "11","11","11","11","11",
-                "11",
-                "14"
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
 
-        });
-        descripcion.add(new String[]{
-                "0","0","0","0","0",
-                "0",
-                "0","0","0","0","0","0",
-                "0",
-                "0"
-        });
+        //y gradiente^2 ( a ) +
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.var1(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+
+        //x gradiente ( b ) = 94.7
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.var2(a,b,c);
+        f.parentesis2(a,b,c);
+        f.igual(a,b,c);
+        f.cons2(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);
@@ -79,52 +92,61 @@ public class ScenePaso3 extends SceneModel {
         descripcion=new ArrayList<>();
         transiciones.add(2);
         //Ecuacion 01*********************************
-        formulas.add(new String[]{
-                "x", "gradiente", "parentesis1","mn", "ma", "parentesis2",//x*gradiente(NA)
-                "mas",//+
-                "x", "y", "gradiente2", "parentesis1","mn", "mb", "parentesis2",//xy*gradiente^2(NB)
-                "igual",//=
-                "igualdad1"//78.4
-        });
-        dimensiones.add(new String[]{
-                "11","11","11","11","11","11",
-                "11",
-                "11","11","11","11","11","11","11",
-                "11",
-                "14"
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
 
-        });
-        descripcion.add(new String[]{
-                "0","0","0","17ns","51as","0",
-                "0",
-                "0","0","0","0","17ns","51bs","0",
-                "0",
-                "0"
-        });
+        //x gradiente ( N A ) +
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+
+        //x y gradiente^2 ( N B ) = 78.4
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.igual(a,b,c);
+        f.cons1(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 02**********************************
-        formulas.add(new String[]{
-                "y", "gradiente2", "parentesis1", "mn", "ma","parentesis2",//y*gradiente^2(NA)
-                "mas",//+
-                "x", "gradiente", "parentesis1", "mn", "mb", "parentesis2",//x*gradiente(NB)
-                "igual",//=
-                "igualdad2"//94.7
-        });
-        dimensiones.add(new String[]{
-                "11","11","11","11","11","11",
-                "11",
-                "11","11","11","11","11","11",
-                "11",
-                "14"
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
 
-        });
-        descripcion.add(new String[]{
-                "0","0","0","17ns","51as","0",
-                "0",
-                "0","0","0","17ns","51bs","0",
-                "0",
-                "0"
-        });
+        //y gradiente^2 ( N A ) +
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+
+        //x gradiente ( N B ) = 94.7
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.igual(a,b,c);
+        f.cons2(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);
@@ -139,64 +161,67 @@ public class ScenePaso3 extends SceneModel {
         descripcion=new ArrayList<>();
         transiciones.add(2);
         //Ecuacion 01*********************************
-        formulas.add(new String[]{
-                "cero","igual",//0 =
-                "menos",//-
-                "x", "gradiente", "parentesis1", "mn", "ma","parentesis2",//x*gradiente(NA)
-                "menos",//-
-                "x", "y", "gradiente2", "parentesis1","mn", "mb", "parentesis2",//xy*gradiente^2(NB)
-                "mas",//=
-                "igualdad1"//78.4
-        });
-        dimensiones.add(new String[]{
-                "11","11",//0=
-                "11",//-
-                "11","11","11","11","11","11",//x*gradiente(NA)
-                "11",
-                "11","11","11","11","11","11","11",
-                "11",
-                "14"
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
 
-        });
-        descripcion.add(new String[]{
-                "0","0",//0=
-                "0",//-
-                "0","0","0","17ns","51as","0",//x*gradiente(NA)
-                "0",
-                "0","0","0","0","17ns","51bs","0",
-                "0",
-                "0"
-        });
+        f.cero(a,b,c);
+        f.igual(a,b,c);
+        f.menos(a,b,c);
+        //x gradiente ( N A ) -
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.menos(a,b,c);
+
+        //x y gradiente^2 ( N B ) + 78.4
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+        f.cons1(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 02**********************************
-        formulas.add(new String[]{
-                "cero","igual",//0 =
-                "menos",//-
-                "y", "gradiente2", "parentesis1", "mn", "ma","parentesis2",//y*gradiente^2(NA)
-                "menos",//-
-                "x", "gradiente", "parentesis1", "mn", "mb", "parentesis2",//x*gradiente(NB)
-                "mas",//=
-                "igualdad2"//94.7
-        });
-        dimensiones.add(new String[]{
-                "11","11",//0=
-                "11",//-
-                "11","11","11","11","11","11",
-                "11",
-                "11","11","11","11","11","11",
-                "11",
-                "14"
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
 
-        });
-        descripcion.add(new String[]{
-                "0","0",//0=
-                "0",//-
-                "0","0","0","17ns","51as","0",
-                "0",
-                "0","0","0","17ns","51bs","0",
-                "0",
-                "0"
-        });
+        f.cero(a,b,c);
+        f.igual(a,b,c);
+        f.menos(a,b,c);
+        //y gradiente^2 ( N A ) -
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.menos(a,b,c);
+
+        //x gradiente ( N B ) + 94.7
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+        f.cons2(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);
@@ -211,64 +236,67 @@ public class ScenePaso3 extends SceneModel {
         descripcion=new ArrayList<>();
         transiciones.add(2);
         //Ecuacion 01*********************************
-        formulas.add(new String[]{
-                "residuo1","igual",//0 =
-                "menos",//-
-                "x", "gradiente", "parentesis1", "mn", "ma","parentesis2",//x*gradiente(NA)
-                "menos",//-
-                "x", "y", "gradiente2", "parentesis1","mn", "mb", "parentesis2",//xy*gradiente^2(NB)
-                "mas",//=
-                "igualdad1"//78.4
-        });
-        dimensiones.add(new String[]{
-                "11","11",//0=
-                "11",//-
-                "11","11","11","11","11","11",//x*gradiente(NA)
-                "11",
-                "11","11","11","11","11","11","11",
-                "11",
-                "14"
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
 
-        });
-        descripcion.add(new String[]{
-                "0","0",//0=
-                "0",//-
-                "0","0","0","17ns","51as","0",//x*gradiente(NA)
-                "0",
-                "0","0","0","0","17ns","51bs","0",
-                "0",
-                "0"
-        });
+        f.residuo1(a,b,c);
+        f.igual(a,b,c);
+        f.menos(a,b,c);
+        //x gradiente ( N A ) -
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.menos(a,b,c);
+
+        //x y gradiente^2 ( N B ) + 78.4
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+        f.cons1(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 02**********************************
-        formulas.add(new String[]{
-                "residuo2","igual",//0 =
-                "menos",//-
-                "y", "gradiente2", "parentesis1", "mn", "ma","parentesis2",//y*gradiente^2(NA)
-                "menos",//-
-                "x", "gradiente", "parentesis1", "mn", "mb", "parentesis2",//x*gradiente(NB)
-                "mas",//=
-                "igualdad2"//94.7
-        });
-        dimensiones.add(new String[]{
-                "11","11",//0=
-                "11",//-
-                "11","11","11","11","11","11",
-                "11",
-                "11","11","11","11","11","11",
-                "11",
-                "14"
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
 
-        });
-        descripcion.add(new String[]{
-                "0","0",//0=
-                "0",//-
-                "0","0","0","17ns","51as","0",
-                "0",
-                "0","0","0","17ns","51bs","0",
-                "0",
-                "0"
-        });
+        f.residuo2(a,b,c);
+        f.igual(a,b,c);
+        f.menos(a,b,c);
+        //y gradiente^2 ( N A ) -
+        f.y(a,b,c);
+        f.gradiente2(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+        f.parentesis2(a,b,c);
+        f.menos(a,b,c);
+
+        //x gradiente ( N B ) + 94.7
+        f.x(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+        f.parentesis2(a,b,c);
+        f.mas(a,b,c);
+        f.cons2(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);

@@ -2,6 +2,7 @@ package main.java.com.luist23.mef3d.scenes;
 
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.scenes.model.SceneModel;
+import main.java.com.luist23.mef3d.utils.FormulasUtil;
 
 import java.util.ArrayList;
 
@@ -12,65 +13,96 @@ public class ScenePaso2 extends SceneModel {
         preview=TypeScene.PASO1;
         fondo="background01";
 
-        ArrayList<String[]> formulas = new ArrayList<>();
-        ArrayList<String[]> dimensiones = new ArrayList<>();
-        ArrayList<String[]> descripcion = new ArrayList<>();
-
-
+        FormulasUtil f= new FormulasUtil();
+        ArrayList<ArrayList<String>> formulas;
+        ArrayList<ArrayList<String>> dimensiones;
+        ArrayList<ArrayList<String>> descripcion;
+        ArrayList<String> a;
+        ArrayList<String> b;
+        ArrayList<String> c;
 
 
 
         //Transicion 01 ------------------------------------------------------------------------------------------------
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
         transiciones.add(4);
         //Ecuacion 01*********************************
-        formulas.add(new String[]{
-                "a","noigual","n1","a1","mas","n2",
-                "a2","mas","n3","a3","mas","n4","a4"
-        });
-        dimensiones.add(new String[]{
-                "11","11","11","11","11","11",
-                "11","11","11","11","11","11","11"
-        });
-        descripcion.add(new String[]{
-                "0","0","0","0","0","0",
-                "0","0","0","0","0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        //a == n1 a1 + n2 a2 + n3 a3 + n4 a4
+        f.var1(a,b,c);
+        f.noigual(a,b,c);
+        f.n1(a,b,c);
+        f.a1(a,b,c);
+        f.mas(a,b,c);
+        f.n2(a,b,c);
+        f.a2(a,b,c);
+        f.mas(a,b,c);
+        f.n3(a,b,c);
+        f.a3(a,b,c);
+        f.mas(a,b,c);
+        f.n4(a,b,c);
+        f.a4(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 02**********************************
-        formulas.add(new String[]{
-                "b","noigual","n1","b1","mas","n2",
-                "b2","mas","n3","b3","mas","n4","b4"
-        });
-        dimensiones.add(new String[]{
-                "11","11","11","11","11","11",
-                "11","11","11","11","11","11","11"
-        });
-        descripcion.add(new String[]{
-                "0","0","0","0","0","0",
-                "0","0","0","0","0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        //b == n1 b1 + n2 b2 + n3 b3 + n4 b4
+        f.var2(a,b,c);
+        f.noigual(a,b,c);
+        f.n1(a,b,c);
+        f.b1(a,b,c);
+        f.mas(a,b,c);
+        f.n2(a,b,c);
+        f.b2(a,b,c);
+        f.mas(a,b,c);
+        f.n3(a,b,c);
+        f.b3(a,b,c);
+        f.mas(a,b,c);
+        f.n4(a,b,c);
+        f.b4(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 03**********************************
-        formulas.add(new String[]{
-                "a","igual","ns","as"
-        });
-        dimensiones.add(new String[]{
-                "11","11","18","52"
-        });
-        descripcion.add(new String[]{
-                "0","0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.var1(a,b,c);
+        f.igual(a,b,c);
+        f.mnC(a,b,c);
+        f.maC(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 04**********************************
-        formulas.add(new String[]{
-                "b","igual","ns","bs"
-        });
-        dimensiones.add(new String[]{
-                "11","11","18","52"
-        });
-        descripcion.add(new String[]{
-                "0","0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.var2(a,b,c);
+        f.igual(a,b,c);
+        f.mnC(a,b,c);
+        f.mbC(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);
@@ -93,37 +125,43 @@ public class ScenePaso2 extends SceneModel {
         descripcion=new ArrayList<>();
         transiciones.add(3);
         //Ecuacion 01*********************************
-        formulas.add(new String[]{
-                "mn","igual","ns"
-        });
-        dimensiones.add(new String[]{
-                "11","11","17"
-        });
-        descripcion.add(new String[]{
-                "0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.mn(a,b,c);
+        f.igual(a,b,c);
+        f.mnC(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 02**********************************
-        formulas.add(new String[]{
-                "ma","igual","as"
-        });
-        dimensiones.add(new String[]{
-                "11","11","52"
-        });
-        descripcion.add(new String[]{
-                "0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.ma(a,b,c);
+        f.igual(a,b,c);
+        f.maC(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 03**********************************
-        formulas.add(new String[]{
-                "mb","igual","bs"
-        });
-        dimensiones.add(new String[]{
-                "11","11","52"
-        });
-        descripcion.add(new String[]{
-                "0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.mb(a,b,c);
+        f.igual(a,b,c);
+        f.mbC(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);
@@ -142,26 +180,34 @@ public class ScenePaso2 extends SceneModel {
         descripcion=new ArrayList<>();
         transiciones.add(2);
         //Ecuacion 01*********************************
-        formulas.add(new String[]{
-                "a","igual","mn","ma"
-        });
-        dimensiones.add(new String[]{
-                "11","11","11","11"
-        });
-        descripcion.add(new String[]{
-                "0","0","17ns","51as"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.var1(a,b,c);
+        f.igual(a,b,c);
+        f.mn(a,b,c);
+        f.ma(a,b,c);
+
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 02**********************************
-        formulas.add(new String[]{
-                "b","igual","mn","mb"
-        });
-        dimensiones.add(new String[]{
-                "11","11","11","11"
-        });
-        descripcion.add(new String[]{
-                "0","0","17ns","51bs"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.var2(a,b,c);
+        f.igual(a,b,c);
+        f.mn(a,b,c);
+        f.mb(a,b,c);
+
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);

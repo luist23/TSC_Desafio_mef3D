@@ -2,6 +2,7 @@ package main.java.com.luist23.mef3d.scenes;
 
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.scenes.model.SceneModel;
+import main.java.com.luist23.mef3d.utils.FormulasUtil;
 
 import java.util.ArrayList;
 
@@ -12,55 +13,70 @@ public class ScenePaso1 extends SceneModel {
         preview=TypeScene.MODELO;
         fondo="background01";
 
-        ArrayList<String[]> formulas = new ArrayList<>();
-        ArrayList<String[]> dimensiones = new ArrayList<>();
-        ArrayList<String[]> descripcion = new ArrayList<>();
+        FormulasUtil f= new FormulasUtil();
+        ArrayList<ArrayList<String>> formulas;
+        ArrayList<ArrayList<String>> dimensiones;
+        ArrayList<ArrayList<String>> descripcion;
+        ArrayList<String> a;
+        ArrayList<String> b;
+        ArrayList<String> c;
 
         //Transicion 01 ------------------------------------------------------------------------------------------------
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
         transiciones.add(4);
         //Ecuacion 01*********************************
-        formulas.add(new String[]{
-                "n1","igual","n1c"
-        });
-        dimensiones.add(new String[]{
-                "11","11","17"
-        });
-        descripcion.add(new String[]{
-                "0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.n1(a,b,c);
+        f.igual(a,b,c);
+        f.n1C(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 02**********************************
-        formulas.add(new String[]{
-                "n2","igual","n2c"
-        });
-        dimensiones.add(new String[]{
-                "11","11","11"
-        });
-        descripcion.add(new String[]{
-                "0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.n2(a,b,c);
+        f.igual(a,b,c);
+        f.n2C(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 03**********************************
-        formulas.add(new String[]{
-                "n3","igual","n3c"
-        });
-        dimensiones.add(new String[]{
-                "11","11","11"
-        });
-        descripcion.add(new String[]{
-                "0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.n3(a,b,c);
+        f.igual(a,b,c);
+        f.n3C(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         //Ecuacion 04**********************************
-        formulas.add(new String[]{
-                "n4","igual","n4c"
-        });
-        dimensiones.add(new String[]{
-                "11","11","11"
-        });
-        descripcion.add(new String[]{
-                "0","0","0"
-        });
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+
+        f.n4(a,b,c);
+        f.igual(a,b,c);
+        f.n4C(a,b,c);
+
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         //*********************************************
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);

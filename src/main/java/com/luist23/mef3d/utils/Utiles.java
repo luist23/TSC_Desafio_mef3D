@@ -9,7 +9,7 @@ public  class Utiles {
     //private static Utiles = new Utiles;
 
     public static ImageView imagen(String a, double height, double width){
-        //System.out.println(a + " "+height+ " "+width);
+        System.out.println(a + " "+height+ " "+width);
         Image image = new Image(Utiles.class.getResourceAsStream("../assets/"+ a +".png"));
         ImageView view = new ImageView(image);
         view.setPreserveRatio(false);

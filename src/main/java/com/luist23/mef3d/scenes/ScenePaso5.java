@@ -8,26 +8,28 @@ import java.util.ArrayList;
 
 public class ScenePaso5 extends SceneModel {
     public void inicializar(){
-        FormulasUtil f= new FormulasUtil();
         tituloVentana = "Paso V";
         next=TypeScene.PASO6;
         preview=TypeScene.PASO4;
         fondo="background01";
 
-        ArrayList<ArrayList<String>> formulas=new ArrayList<>();
-        ArrayList<ArrayList<String>> dimensiones=new ArrayList<>();
-        ArrayList<ArrayList<String>> descripcion=new ArrayList<>();
+        FormulasUtil f= new FormulasUtil();
+        ArrayList<ArrayList<String>> formulas;
+        ArrayList<ArrayList<String>> dimensiones;
+        ArrayList<ArrayList<String>> descripcion;
         ArrayList<String> a;
         ArrayList<String> b;
         ArrayList<String> c;
 
-
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
         transiciones.add(2);
 
+        //Ecuacion 01*********************************
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-        //Ecuacion 01*********************************
         f.integral(a,b,c);
         f.ntrasnpuesta(a,b,c);
         f.residuo1(a,b,c);
@@ -60,6 +62,9 @@ public class ScenePaso5 extends SceneModel {
 
 
 
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
         transiciones.add(2);
 
         //Ecuancion 01********
