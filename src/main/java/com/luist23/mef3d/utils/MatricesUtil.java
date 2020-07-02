@@ -130,6 +130,17 @@ public class MatricesUtil {
         b.add("21");
         c.add("59matriz_component/s1");
     }
+
+    public void sal2(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/1s2");
+        b.add("21");
+        c.add("59matriz_component/s2");
+    }
+    public void alphaBeta(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/betaAlphaTrans");
+        b.add("12");
+        c.add("0");
+    }
     public void alpha(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("abreviaciones/alpha");
         b.add("11");
@@ -177,6 +188,43 @@ public class MatricesUtil {
     public void omegaMatriz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("integrales/integralOmega");
         b.add("79");
+        c.add("0");
+    }
+    public void p(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/p");
+        b.add("11");
+        c.add("29integrales/pContent");
+    }
+    public void pigual(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/pC1");
+        b.add("49");
+        c.add("0");
+        a.add("integrales/pC2");
+        b.add("48");
+        c.add("0");
+        a.add("integrales/pC3");
+        b.add("43");
+        c.add("0");
+    }
+    public void xy(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/xyMultiplicacion1");
+        b.add("39");
+        c.add("0");
+        a.add("integrales/xyMultiplicacion2");
+        b.add("39");
+        c.add("0");
+    }
+    public void yy(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/integralY");
+        b.add("19");
+    }
+    public void pJ(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/pJ");
+        b.add("26");
+    }
+    public void siAlphaTrans(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/sialphaybeta");
+        b.add("49");
         c.add("0");
     }
     public void omega(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){

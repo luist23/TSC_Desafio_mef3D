@@ -506,8 +506,8 @@ public class SceneMatrizComponent extends SceneModel {
         f.igual(a,b,c);
         m.s2(a,b,c);
         m.omega(a,b,c);
-        m.alpha(a,b,c);
-        m.beta(a,b,c);
+            m.alpha(a,b,c);
+            m.beta(a,b,c);
         //fin C
         //-----------
         formulas.add(a);
@@ -531,358 +531,349 @@ public class SceneMatrizComponent extends SceneModel {
 
 
 
-        //transicion 3
+        //transicion 7
         formulas=new ArrayList<>();
         dimensiones=new ArrayList<>();
         descripcion=new ArrayList<>();
-        transiciones.add(6);
-
-        //Ecuacion 01*********************************tomamos E
+        transiciones.add(8);
+        //Ecuacion 01*********************************tomamos k
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
-        f.e(a,b,c);
+        f.k(a,b,c);
         f.igual(a,b,c);
-        //D
-        f.integral(a,b,c);//SS
-        f.ntrasnpuesta(a,b,c);//nt
-        //f.x(a,b,c);//x y gradiente^2 ( N B ) +
+        f.integral(a,b,c);
+        f.gradiente(a,b,c);
+        f.ntrasnpuesta(a,b,c);
+        f.x(a,b,c);
         f.y(a,b,c);
-        f.gradiente2(a,b,c);
+        f.gradiente(a,b,c);
         f.parentesis1(a,b,c);
         f.mn(a,b,c);
         f.parentesis2(a,b,c);
-        f.integral2(a,b,c);//dv
-        //fin D
+        f.integral2(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-        //Ecuacion 02*********************************la vaca
+        //Ecuacion 02*********************************mostramos condicion de transuetas
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
         //------------------
-        f.vaca(a,b,c);
+        m.siAlphaTrans(a,b,c);
         //-----------------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-
-        //Ecuacion 03*********************************definimos u
+        //Ecuacion 03*********************************remplzamos conocidos en k
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
-        f.u(a,b,c);
-        f.igual(a,b,c);
-        f.ntrasnpuesta(a,b,c);//SS
-
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-        //Ecuacion 04*********************************definimos du
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-
-        f.du(a,b,c);
-        f.igual(a,b,c);
-        f.gradiente(a,b,c);
-        f.ntrasnpuesta(a,b,c);//SS
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-
-        //Ecuacion 05*********************************definimos dv
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-
-        f.integral2(a,b,c);
-        f.igual(a,b,c);
-        //f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.ntrasnpuesta(a,b,c);//SS
-        f.parentesis2(a,b,c);
-        f.parentesis2(a,b,c);
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-
-        //Ecuacion 06*********************************definimos v
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-
-        f.v(a,b,c);
-        f.igual(a,b,c);
-        //f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.ntrasnpuesta(a,b,c);//SS
-        f.parentesis2(a,b,c);
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-        formulasC.add(formulas);
-        dimensionesC.add(dimensiones);
-        descripcionC.add(descripcion);
-        //--------------------------------------------------------------------------------------------------------------
-
-
-        //transicion 2
-        formulas=new ArrayList<>();
-        dimensiones=new ArrayList<>();
-        descripcion=new ArrayList<>();
-        transiciones.add(4);
-
-        //Ecuancion 01********
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-
-        f.e(a,b,c);
-        f.igual(a,b,c);
-        f.corchete1(a,b,c);
-        f.ntrasnpuesta(a,b,c);
-
-        //f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
-        f.corchete2(a,b,c);
-
-        f.contorno(a,b,c);
-        f.menos(a,b,c);
-        f.integral(a,b,c);
-        f.gradiente(a,b,c);
-        f.ntrasnpuesta(a,b,c);
-        //f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
-        f.integral2(a,b,c);
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-        //Ecuacion 02*********************************//phi
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-        f.phi(a,b,c);
-        f.igual(a,b,c);
-        f.corchete1(a,b,c);
-        f.ntrasnpuesta(a,b,c);
-
-        //f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
-        f.corchete2(a,b,c);
-
-        f.contorno(a,b,c);
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-
-        //Ecuancion 03******** j
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-
-        f.j(a,b,c);
+        f.k(a,b,c);
         f.igual(a,b,c);
         f.integral(a,b,c);
-        f.gradiente(a,b,c);
-        f.ntrasnpuesta(a,b,c);
-        //f.x(a,b,c);
+        m.s2(a,b,c);
+        m.alphaBeta(a,b,c);
+        f.x(a,b,c);
         f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
+        m.s2(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
         f.integral2(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-
-        //Ecuancion 04******** D = -j
+        //Ecuacion 04*********************************extraemos constantes
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
-        f.e(a,b,c);
+        f.k(a,b,c);
         f.igual(a,b,c);
-        f.menos(a,b,c);
-        f.j(a,b,c);
+        m.sal2(a,b,c);
+        f.integral(a,b,c);
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.integral2(a,b,c);
+        m.alphaBeta(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
 
+        //Ecuacion 05*********************************integrando
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.integral(a,b,c);
+        f.x(a,b,c);
+        f.y(a,b,c);
+        f.integral2(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 06*********************************reemplazando xy
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //f.integral(a,b,c);
+        m.xy(a,b,c);
+        //f.integral2(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 07********************************integrando y nombrando p
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.pigual(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 08*********************************fin K
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.k(a,b,c);
+        f.igual(a,b,c);
+        m.sal2(a,b,c);
+        m.p(a,b,c);
+        m.alphaBeta(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);
         descripcionC.add(descripcion);
         //--------------------------------------------------------------------------------------------------------------
-
-
-        //trancicion 7---- forma debil
-        formulas=new ArrayList<>();
-        dimensiones=new ArrayList<>();
-        descripcion=new ArrayList<>();
-        transiciones.add(2);
-
-        //Ecuancion 01********
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-        f.c(a,b,c);
-        f.ma(a,b,c);
-        f.mas(a,b,c);
-        f.menos(a,b,c);
-        f.k(a,b,c);//D
-        f.mb(a,b,c);
-        f.igual(a,b,c);
-
-        f.f(a,b,c);
-        //f.cero(a,b,c);
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-        //Ecuacion 02*********************************
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-        f.menos(a,b,c);
-        f.j(a,b,c);
-        f.ma(a,b,c);
-        f.mas(a,b,c);
-        f.g(a,b,c);//D
-        f.mb(a,b,c);
-        f.igual(a,b,c);
-
-        f.h(a,b,c);
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-
-        formulasC.add(formulas);
-        dimensionesC.add(dimensiones);
-        descripcionC.add(descripcion);
-
-        //trancicion 8---- forma debilmatriz
-        formulas=new ArrayList<>();
-        dimensiones=new ArrayList<>();
-        descripcion=new ArrayList<>();
-        transiciones.add(2);
-
-        //Ecuancion 01********//forma debil->matriz
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-
-        f.corchete41(a,b,c);
-        f.espacio(a,b,c);
-        f.c(a,b,c);
-        f.espacio(a,b,c);
-        f.menos(a,b,c);
-        f.k(a,b,c);//D
-        f.corchete42(a,b,c);
-
-        f.corchete41(a,b,c);
-        f.ma(a,b,c);
-        f.corchete42(a,b,c);
-
-        f.igual(a,b,c);
-        f.corchete41(a,b,c);
-        f.f(a,b,c);
-        f.corchete42(a,b,c);
-
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-        //Ecuacion 02*********************************
-        a=new ArrayList<>();
-        b=new ArrayList<>();
-        c=new ArrayList<>();
-        f.corchete43(a,b,c);
-        f.menos(a,b,c);
-        f.j(a,b,c);
-        f.espacio(a,b,c);
-        f.espacio(a,b,c);
-        f.g(a,b,c);
-        f.corchete44(a,b,c);
-
-        f.corchete43(a,b,c);
-        f.mb(a,b,c);
-        f.corchete44(a,b,c);
-
-        f.espacio(a,b,c);
-        f.corchete43(a,b,c);
-        f.h(a,b,c);
-        f.corchete44(a,b,c);
-
-        //-----------
-        formulas.add(a);
-        dimensiones.add(b);
-        descripcion.add(c);
-
-        formulasC.add(formulas);
-        dimensionesC.add(dimensiones);
-        descripcionC.add(descripcion);
-        //--------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
         subtitulos.add(new String[]{
-                "Construimos forma matricial fila 1",
-                "Construimos forma matricial fila 1",
+                "Tomamos la funcion K",
+                "definimos el gradiente epsilón de N transpuesta",
+                "reemplazamos los gradientes",
+                "extraemos las constantes",
+                "trabajaremos la integral",
+                "reemplazamos x, y",
+                "solucion de integral y definición de p",
+                "reemplzando nuevos componentes de K"
         });
+
+
+
+        //transicion 8
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(7);
+        //Ecuacion 01*********************************tomamos J
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.j(a,b,c);
+        f.igual(a,b,c);
+        f.integral(a,b,c);
+        f.gradiente(a,b,c);
+        f.ntrasnpuesta(a,b,c);
+        //f.x(a,b,c);
+        f.y(a,b,c);
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************remplzamos conocidos en J
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.k(a,b,c);
+        f.igual(a,b,c);
+        f.integral(a,b,c);
+        m.s2(a,b,c);
+        m.alphaBeta(a,b,c);
+        //f.x(a,b,c);
+        f.y(a,b,c);
+        m.s2(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        f.integral2(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 03*********************************extraemos constantes
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.k(a,b,c);
+        f.igual(a,b,c);
+        m.sal2(a,b,c);
+        f.integral(a,b,c);
+        //f.x(a,b,c);
+        f.y(a,b,c);
+        f.integral2(a,b,c);
+        m.alphaBeta(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+
+        //Ecuacion 04*********************************integrando
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.integral(a,b,c);
+        //f.x(a,b,c);
+        f.y(a,b,c);
+        f.integral2(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 05*********************************reemplazando y
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //f.integral(a,b,c);
+        m.yy(a,b,c);
+        //f.integral2(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 06********************************solucion de integral
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.pJ(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 07*********************************fin J
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.k(a,b,c);
+        f.igual(a,b,c);
+        m.sal2(a,b,c);
+        m.pJ(a,b,c);
+        m.alphaBeta(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+        subtitulos.add(new String[]{
+                "Tomamos la funcion J",
+                //"definimos el gradiente epsilón de N transpuesta",
+                "reemplazamos los gradientes",
+                "extraemos las constantes",
+                "trabajaremos la integral",
+                "reemplazamos y",
+                "solucion de integral",
+                "reemplzando nuevos componentes de J"
+        });
+
+
+
+
+        //transicion 9
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(3);
+        //Ecuancion 01******** // tomaNDO ECUACION G
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.g(a,b,c);
+        f.igual(a,b,c);
+        //C
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        f.x(a,b,c);//x gradiente( N A ) -
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 02******** G = C
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.g(a,b,c);
+        f.igual(a,b,c);
+        f.c(a,b,c);
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 03******** reemplazando
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.g(a,b,c);
+        f.igual(a,b,c);
+        m.s2(a,b,c);
+        m.omega(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+        subtitulos.add(new String[]{
+                "Operaremos la ecuacion G",
+                "Notamos que: ",
+                "por tanto",
+        });
+
+
+
 
         titulos = new String[]{
                 "Convertinos el mundo x, y, z en el mundo épsilon, eta, psi",
                 "Operamos primer componente",
+                "Operamos segundo componente",
+                "Operamos Inversa de segundo componente",
+                "reemplazamos componentes en formula de conversion",
 
+                "Operamos la matriz C",
+                "Operamos la matriz K",
+                "Operamos la matriz J",
+                "Operamos la matriz G",
 
-                "Representación en mundo épsilon, eta, psi",
-                "Eliminando la doble derivación Matriz D",
-                "Eliminando la doble derivación Matriz E",
-                "Eliminando la doble derivación Matriz E",
-                "Construyendo la 'Forma debil'",
-                "Construyendo la matriz de la'Forma debil'",
+                
         };
 
 
