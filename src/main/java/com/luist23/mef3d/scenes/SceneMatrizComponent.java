@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class SceneMatrizComponent extends SceneModel {
     public void inicializar(){
-        tituloVentana = "Paso VI";
+        tituloVentana = "Matrices";
         next=TypeScene.ENSAMBLAJE;
         preview=TypeScene.PASO6;
         fondo="background01";
@@ -23,21 +23,21 @@ public class SceneMatrizComponent extends SceneModel {
         ArrayList<String> b;
         ArrayList<String> c;
 
+
+        //Transaccion 01
         formulas=new ArrayList<>();
         dimensiones=new ArrayList<>();
         descripcion=new ArrayList<>();
-        transiciones.add(6);
-
+        transiciones.add(3);
         //Ecuacion 01*********************************
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
+        //------------
         m.gradienteXN(a,b,c);
         f.igual(a,b,c);
         m.gradienteEXIn(a,b,c);
         m.gradienteEN(a,b,c);
-
         //-----------
         formulas.add(a);
         dimensiones.add(b);
@@ -52,81 +52,257 @@ public class SceneMatrizComponent extends SceneModel {
         m.gradienteXMatriz(a,b,c);
         f.espacio(a,b,c);
         f.espacio(a,b,c);
-
+        //----------
         m.gradienteE(a,b,c);
         f.igual(a,b,c);
         m.gradienteEMatriz(a,b,c);
         f.espacio(a,b,c);
         f.espacio(a,b,c);
-
+        //-----------
         m.x(a,b,c);
         f.igual(a,b,c);
         m.xMatriz(a,b,c);
-
         //-----------------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-
         //Ecuacion 03*********************************
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
+        //----------
         m.xyz(a,b,c);
-
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-        //Ecuacion 04*********************************
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        subtitulos.add(new String[]{
+                "formula a emplear",
+                "definimas las componentes",
+                "definimos nuestras nuevas x, y, z",
+        });
+
+
+
+
+        //transaccion 2
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(5);
+        //Ecuacion 01*********************************//seleccionamos primer componente
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
+        //---------
         m.gradienteEN(a,b,c);
         f.igual(a,b,c);
         m.gradienteEMatriz(a,b,c);
-        f.mn(a,b,c);
+        f.mnC(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-
-        //Ecuacion 05*********************************
+        //Ecuacion 02*********************************//sustituimos las componentes de N
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
-        f.integral2(a,b,c);
+        //-------------
+        m.gradienteEN(a,b,c);
         f.igual(a,b,c);
-        f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.ntrasnpuesta(a,b,c);//SS
-        f.parentesis2(a,b,c);
-        f.parentesis2(a,b,c);
+        m.gradienteEMatriz(a,b,c);
+        f.corchete1(a,b,c);
+        f.n1C(a,b,c);
+        f.espacio(a,b,c);
+        f.n2C(a,b,c);
+        f.espacio(a,b,c);
+        f.n3C(a,b,c);
+        f.espacio(a,b,c);
+        f.n4C(a,b,c);
+        f.corchete2(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-
-        //Ecuacion 06*********************************definimos v
+        //Ecuacion 03*********************************operamos componentes
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
-        f.v(a,b,c);
+        //------------------
+        m.gradienteEN(a,b,c);
         f.igual(a,b,c);
-        f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.ntrasnpuesta(a,b,c);//SS
-        f.parentesis2(a,b,c);
+        m.gradienteENOpe(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 04*********************************optenemos resultado final
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //-----------------
+        m.gradienteEN(a,b,c);
+        f.igual(a,b,c);
+        m.betaMatriz(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 05*********************************optenemos beta
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //-----------
+        m.beta(a,b,c);
+        f.igual(a,b,c);
+        m.betaMatriz(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //-------------
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+        subtitulos.add(new String[]{
+                "seleccionamos nuestra primer componente a operar",
+                "sustituimos los componentes de N",
+                "operamos las matrices",
+                "derivamos los componentes",
+                "nombramos una nueva matriz beta"
+        });
+
+
+
+
+
+        //transaccion 3
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(4);
+        //Ecuacion 01*********************************//seleccionamos segunda componente
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //--------------
+        m.gradienteEX(a,b,c);
+        f.igual(a,b,c);
+        m.gradienteEMatriz(a,b,c);
+        m.xMatriz(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************//Operamos
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //-----------------
+        m.gradienteEX(a,b,c);
+        f.igual(a,b,c);
+        m.gradienteEXOperado(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 03*********************************Resolvemos matriz
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //--------------------
+        m.gradienteEX(a,b,c);
+        f.igual(a,b,c);
+        m.gradienteEXResuelto(a,b,c);//resuelto
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 04*********************************optenemos resultado final simplificado
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        //-------------------
+        m.gradienteEX(a,b,c);
+        f.igual(a,b,c);
+        m.gradienteEXResueltoSimplificado(a,b,c);//resuelto
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //---------------
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+        subtitulos.add(new String[]{
+                "seleccionamos nuestra segunda componente a operar",
+                "operamos las matrices",
+                "derivamos los componentes",
+                "simplificamos los resultados"
+        });
+
+
+
+
+        //transaccion 4
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(4);
+        //Ecuacion 01*********************************//Inversa de segunda componnte
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.gradienteEXIn(a,b,c);
+        f.igual(a,b,c);
+        m.determinante2(a,b,c);
+        m.adjunta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************//operando el determinante y definiendo S
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.determinante(a,b,c);
+        f.igual(a,b,c);
+        m.determinanteR(a,b,c);
+        f.igual(a,b,c);
+        m.s(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 03*********************************operando adjunta y opteniendo alpha
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.adjunta(a,b,c);
+        f.igual(a,b,c);
+        m.alphaMatriz(a,b,c);
+        f.igual(a,b,c);
+        m.alpha(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 04*********************************reemplazando inversa
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.gradienteEXIn(a,b,c);
+        f.igual(a,b,c);
+        m.determinante2(a,b,c);
+        m.adjunta(a,b,c);
+        f.igual(a,b,c);
+        m.s2(a,b,c);
+        m.alpha(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
@@ -135,6 +311,46 @@ public class SceneMatrizComponent extends SceneModel {
         dimensionesC.add(dimensiones);
         descripcionC.add(descripcion);
         //--------------------------------------------------------------------------------------------------------------
+        subtitulos.add(new String[]{
+                "definimos inversa a la segunda componete",
+                "Operando el determinante y obteniendo S",
+                "Operando la adjunta y obteniendo alpha",
+                "reemplazando operandos en nuestra componete"
+        });
+
+
+
+
+        //transaccion 5
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(1);
+        //Ecuacion 01*********************************// volviendo al la rimera ecaucion
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.gradienteXN(a,b,c);
+        f.igual(a,b,c);
+        m.gradienteEXIn(a,b,c);
+        m.gradienteEN(a,b,c);
+        f.igual(a,b,c);
+        m.s2(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        subtitulos.add(new String[]{
+                "Operando nuestra ecuación"
+        });
+
+
+
 
 
         //transicion 2
@@ -569,37 +785,13 @@ public class SceneMatrizComponent extends SceneModel {
 
 
 
-        subtitulos.add(new String[]{
-                "tomamos la ecuacion D",
-                "Recordamos la formula de integración por partes ('la vaca')",
-                "Tomanos u",
-                "derivamos u",
-                "Tomanos dv",
-                "Integramos dv",
-        });
 
-        subtitulos.add(new String[]{
-                "sustituyendo Derivacion por partes",
-                "Definiendo Phi",
-                "Definiendo K",
-                "Phi constituye el contorno por lo que lo descartaremos, por tanto:"
-        });
 
-        subtitulos.add(new String[]{
-                "tomamos la ecuacion E",
-                "Recordamos la formula de integración por partes ('la vaca')",
-                "Tomanos u",
-                "derivamos u",
-                "Tomanos dv",
-                "Integramos dv",
-        });
 
-        subtitulos.add(new String[]{
-                "sustituyendo Derivacion por partes",
-                "Definiendo Phi",
-                "Definiendo J",
-                "Phi constituye el contorno por lo que lo descartaremos, por tanto:"
-        });
+
+
+
+
 
         subtitulos.add(new String[]{
                 "remplazando D",
@@ -612,7 +804,10 @@ public class SceneMatrizComponent extends SceneModel {
         });
 
         titulos = new String[]{
-                "Eliminando la doble derivación Matriz D",
+                "Convertinos el mundo x, y, z en el mundo épsilon, eta, psi",
+
+                "Operamos primer componente",
+                "Representación en mundo épsilon, eta, psi",
                 "Eliminando la doble derivación Matriz D",
                 "Eliminando la doble derivación Matriz E",
                 "Eliminando la doble derivación Matriz E",

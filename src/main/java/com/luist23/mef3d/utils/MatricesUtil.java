@@ -19,6 +19,24 @@ public class MatricesUtil {
         b.add("13");
         c.add("0");
     }
+    public void betaMatriz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/betaMatriz");
+        b.add("47");
+        c.add("0");
+    }
+    public void beta(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/beta");
+        b.add("11");
+        c.add("47matriz_component/betaMatriz");
+    }
+    public void gradienteENOpe(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/gradienteEdeNOperado1");
+        b.add("77");
+        c.add("0");
+        a.add("matriz_component/gradienteEdeNOperado2");
+        b.add("79");
+        c.add("0");
+    }
     public void gradienteEX(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("matriz_component/gradienteEdeX");
         b.add("13");
@@ -53,6 +71,69 @@ public class MatricesUtil {
         a.add("matriz_component/gradienteEMatriz");
         b.add("71");
         c.add("0");
+    }
+    public void gradienteEXOperado(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/gradienteEdeXOperado");
+        b.add("75");
+        c.add("0");
+    }
+    public void gradienteEXResuelto(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/gradienteEdeXOperadoResuelto1");
+        b.add("46");
+        c.add("0");
+        a.add("matriz_component/gradienteEdeXOperadoResuelto2");
+        b.add("45");
+        c.add("0");
+    }
+    public void gradienteEXResueltoSimplificado(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/gradienteEdeXOperadoResueltoSimplificado");
+        b.add("59");
+        c.add("0");
+    }
+    public void determinante(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/determinante");
+        b.add("12");
+        c.add("0");
+    }
+    public void determinante2(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/determinante2");
+        b.add("32");
+        c.add("0");
+    }
+    public void adjunta(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/adjunta");
+        b.add("13");
+        c.add("0");
+    }
+    public void determinanteR(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/determinanteResuelto");
+        b.add("59");
+        c.add("0");
+    }
+    public void s1(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/s1");
+        b.add("59");
+        c.add("0");
+    }
+    public void alphaMatriz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/alphaMatriz");
+        b.add("59");
+        c.add("0");
+    }
+    public void s(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/s");
+        b.add("11");
+        c.add("0");
+    }
+    public void s2(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/1s");
+        b.add("21");
+        c.add("59matriz_component/s1");
+    }
+    public void alpha(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/alpha");
+        b.add("11");
+        c.add("59matriz_component/alphaMatriz");
     }
     public void gradienteXMatriz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("matriz_component/gradienteXMatriz");

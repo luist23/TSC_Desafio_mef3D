@@ -41,6 +41,9 @@ public class FactoryScene {
             case PASO6:
                 ScenePaso6 scenePaso6= new ScenePaso6(stage);
                 return scenePaso6.getScene();
+            case MATRICES:
+                SceneMatrizComponent m= new SceneMatrizComponent(stage);
+                return m.getScene();
         }
         return null;
     }
