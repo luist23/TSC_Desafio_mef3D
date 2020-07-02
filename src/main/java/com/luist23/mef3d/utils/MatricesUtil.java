@@ -135,6 +135,63 @@ public class MatricesUtil {
         b.add("11");
         c.add("59matriz_component/alphaMatriz");
     }
+    public void x1(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/x1");
+        b.add("15");
+        c.add("0");
+    }
+    public void x2(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/x2");
+        b.add("15");
+        c.add("0");
+    }
+    public void x3(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/x3");
+        b.add("15");
+        c.add("0");
+    }
+    public void integralC(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/integralC1");
+        b.add("89");
+        c.add("0");
+        a.add("integrales/integralC2");
+        b.add("89");
+        c.add("0");
+    }
+    public void integralCv2(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/integralC1");
+        b.add("89");
+        c.add("0");
+        a.add("integrales/integralC2v2");
+        b.add("85");
+        c.add("0");
+    }
+    public void integralCv3(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/integralCmatriz1");
+        b.add("88");
+        c.add("0");
+        a.add("integrales/integralCmatriz2");
+        b.add("18");
+        c.add("0");
+    }
+    public void omegaMatriz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("integrales/integralOmega");
+        b.add("79");
+        c.add("0");
+    }
+    public void omega(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/omega");
+        b.add("11");
+        c.add("79integrales/integralOmega");
+    }
+
+
+    public void x4(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("abreviaciones/x4");
+        b.add("11");
+        c.add("0");
+    }
+
     public void gradienteXMatriz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("matriz_component/gradienteXMatriz");
         b.add("71");

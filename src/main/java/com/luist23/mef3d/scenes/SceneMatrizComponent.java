@@ -353,109 +353,181 @@ public class SceneMatrizComponent extends SceneModel {
 
 
 
-        //transicion 2
+        //transicion 6
         formulas=new ArrayList<>();
         dimensiones=new ArrayList<>();
         descripcion=new ArrayList<>();
-        transiciones.add(4);
-
-        //Ecuancion 01******** // d = vaca
+        transiciones.add(9);
+        //Ecuancion 01******** // tomaNDO ECUACION C
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
-        f.d(a,b,c);
+        f.c(a,b,c);
         f.igual(a,b,c);
+        //C
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        f.x(a,b,c);//x gradiente( N A ) -
+        f.gradiente(a,b,c);
+        f.parentesis1(a,b,c);
+        f.mn(a,b,c);
+        f.parentesis2(a,b,c);
+        f.integral2(a,b,c);//dv
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuacion 02*********************************//sustituyendo C
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.c(a,b,c);
+        f.igual(a,b,c);
+        //C
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //---
         f.corchete1(a,b,c);
-        f.ntrasnpuesta(a,b,c);
-
-        f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
+        m.x1(a,b,c);
+        f.mas(a,b,c);
+        m.x2(a,b,c);
+        f.mas(a,b,c);
+        m.x3(a,b,c);
+        f.mas(a,b,c);
+        m.x4(a,b,c);
         f.corchete2(a,b,c);
-
-        f.contorno(a,b,c);
-        f.menos(a,b,c);
-        f.integral(a,b,c);
-        f.gradiente(a,b,c);
-        f.ntrasnpuesta(a,b,c);
-        f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
+        //
+        m.s2(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        f.integral2(a,b,c);
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 03******** extrayendo constantes
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.c(a,b,c);
+        f.igual(a,b,c);
+        m.s2(a,b,c);
+        //C
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //---
+        f.corchete1(a,b,c);
+        m.x1(a,b,c);
+        f.mas(a,b,c);
+        m.x2(a,b,c);
+        f.mas(a,b,c);
+        m.x3(a,b,c);
+        f.mas(a,b,c);
+        m.x4(a,b,c);
+        f.corchete2(a,b,c);
+        //
+        f.integral2(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 04******** Integrando
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        //---
+        f.corchete1(a,b,c);
+        m.x1(a,b,c);
+        f.mas(a,b,c);
+        m.x2(a,b,c);
+        f.mas(a,b,c);
+        m.x3(a,b,c);
+        f.mas(a,b,c);
+        m.x4(a,b,c);
+        f.corchete2(a,b,c);
+        //
         f.integral2(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-        //Ecuacion 02*********************************//phi
+        //Ecuancion 05******** Resolviendo Integrando
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-        f.phi(a,b,c);
-        f.igual(a,b,c);
-        f.corchete1(a,b,c);
-        f.ntrasnpuesta(a,b,c);
-
-        f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
-        f.corchete2(a,b,c);
-
-        f.contorno(a,b,c);
+        m.integralC(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
 
-        //Ecuancion 03******** K
+        //Ecuancion 06******** Resolviendo Integrando sumando 2 matrices
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-
-        f.k(a,b,c);
-        f.igual(a,b,c);
-        f.integral(a,b,c);
-        f.gradiente(a,b,c);
-        f.ntrasnpuesta(a,b,c);
-        f.x(a,b,c);
-        f.y(a,b,c);
-        f.gradiente(a,b,c);
-        f.parentesis1(a,b,c);
-        f.mn(a,b,c);
-        f.parentesis2(a,b,c);
-        f.integral2(a,b,c);
+        m.integralCv2(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-
-        //Ecuancion 04******** D = -k
+        //Ecuancion 07******** suma matricial
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
 
-        f.d(a,b,c);
-        f.igual(a,b,c);
-        f.menos(a,b,c);
-        f.k(a,b,c);
+        m.integralCv3(a,b,c);
         //-----------
         formulas.add(a);
         dimensiones.add(b);
         descripcion.add(c);
-
+        //Ecuancion 08******** suma matricial definiendo omega
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.omegaMatriz(a,b,c);
+        f.igual(a,b,c);
+        m.omega(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 09******** reemplazando omega
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.c(a,b,c);
+        f.igual(a,b,c);
+        m.s2(a,b,c);
+        m.omega(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
         formulasC.add(formulas);
         dimensionesC.add(dimensiones);
         descripcionC.add(descripcion);
         //--------------------------------------------------------------------------------------------------------------
+        subtitulos.add(new String[]{
+                "Operaremos la ecuacion C",
+                "sustituimos las varibles modificadas",
+                "extraemos las constantes",
+                "trabajando integral",
+                "solución de la integral",
+                "sumaremos dos de las matrices resultantes",
+                "representaremos la suma en forma matricial",
+                "modificaremos la segunda matriz y definimos matriz omega 4x3",
+                "reemplazando nuevos valores en C"
+        });
 
 
 
@@ -793,10 +865,7 @@ public class SceneMatrizComponent extends SceneModel {
 
 
 
-        subtitulos.add(new String[]{
-                "remplazando D",
-                "remplazando E"
-        });
+
 
         subtitulos.add(new String[]{
                 "Construimos forma matricial fila 1",
@@ -805,8 +874,9 @@ public class SceneMatrizComponent extends SceneModel {
 
         titulos = new String[]{
                 "Convertinos el mundo x, y, z en el mundo épsilon, eta, psi",
-
                 "Operamos primer componente",
+
+
                 "Representación en mundo épsilon, eta, psi",
                 "Eliminando la doble derivación Matriz D",
                 "Eliminando la doble derivación Matriz E",
