@@ -1,10 +1,9 @@
 package main.java.com.luist23.mef3d;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.factory.FactoryScene;
-import main.java.com.luist23.mef3d.scenes.TypeScene;
+import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 
 
 public class MainApp extends Application {
@@ -17,6 +16,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         primary = primaryStage;
         main = this;
+        primary.setMaximized(true);
         setSceneFactory(TypeScene.MAIN);
         //primaryStage.setScene(FactoryScene.getScene(TypeScene.MAIN , this,primaryStage));
         //primaryStage.initStyle(StageStyle.TRANSPARENT);

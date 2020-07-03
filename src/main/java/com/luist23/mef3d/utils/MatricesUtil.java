@@ -69,12 +69,12 @@ public class MatricesUtil {
     }
     public void gradienteEMatriz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("matriz_component/gradienteEMatriz");
-        b.add("71");
+        b.add("72");
         c.add("0");
     }
     public void gradienteEXOperado(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("matriz_component/gradienteEdeXOperado");
-        b.add("75");
+        b.add("86");
         c.add("0");
     }
     public void gradienteEXResuelto(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
@@ -102,7 +102,7 @@ public class MatricesUtil {
     }
     public void adjunta(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("matriz_component/adjunta");
-        b.add("13");
+        b.add("14");
         c.add("0");
     }
     public void determinanteR(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
@@ -216,11 +216,13 @@ public class MatricesUtil {
     }
     public void yy(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("integrales/integralY");
-        b.add("19");
+        b.add("29");
+        c.add("0");
     }
     public void pJ(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("integrales/pJ");
         b.add("26");
+        c.add("0");
     }
     public void siAlphaTrans(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("integrales/sialphaybeta");
@@ -242,18 +244,28 @@ public class MatricesUtil {
 
     public void gradienteXMatriz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("matriz_component/gradienteXMatriz");
-        b.add("71");
+        b.add("72");
+        c.add("0");
+    }
+    public void fh(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/fh");
+        b.add("72");
+        c.add("0");
+    }
+    public void finM(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
+        a.add("matriz_component/matricesfinal");
+        b.add("79");
         c.add("0");
     }
     public void xyz(ArrayList<String> a, ArrayList<String> b, ArrayList<String> c){
         a.add("matriz_component/xyzComponent1");
-        b.add("42");
+        b.add("53");
         c.add("0");
         a.add("matriz_component/xyzComponent2");
-        b.add("48");
+        b.add("59");
         c.add("0");
         a.add("matriz_component/xyzComponent3");
-        b.add("46");
+        b.add("57");
         c.add("0");
     }
 

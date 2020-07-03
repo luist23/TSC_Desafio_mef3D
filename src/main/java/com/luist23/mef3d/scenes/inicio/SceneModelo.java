@@ -1,11 +1,9 @@
-package main.java.com.luist23.mef3d.scenes;
+package main.java.com.luist23.mef3d.scenes.inicio;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -15,6 +13,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.MainApp;
+import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.Utiles;
 
 public class SceneModelo {
@@ -42,8 +41,8 @@ public class SceneModelo {
 
     public SceneModelo(Stage stage){
         stage.setTitle("Modelo");
-        next=TypeScene.PASO1;
-        preview=TypeScene.STAGE2;
+        next=TypeScene.DOMINIO;
+        preview=TypeScene.MAIN;
 
         //botones---------------------------------
         siguiente= new HBox();

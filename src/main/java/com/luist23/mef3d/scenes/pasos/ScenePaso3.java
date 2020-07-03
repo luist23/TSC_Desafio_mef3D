@@ -1,6 +1,7 @@
-package main.java.com.luist23.mef3d.scenes;
+package main.java.com.luist23.mef3d.scenes.pasos;
 
 import javafx.stage.Stage;
+import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.scenes.model.SceneModel;
 import main.java.com.luist23.mef3d.utils.FormulasUtil;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class ScenePaso3 extends SceneModel {
     public void inicializar(){
         tituloVentana = "Paso III";
-        next=TypeScene.PASO4;
+        next= TypeScene.PASO4;
         preview=TypeScene.PASO2;
         fondo="background01";
 

@@ -1,7 +1,8 @@
-package main.java.com.luist23.mef3d.scenes;
+package main.java.com.luist23.mef3d.scenes.fin;
 
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.scenes.model.SceneModel;
+import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.FormulasUtil;
 import main.java.com.luist23.mef3d.utils.MatricesUtil;
 
@@ -9,8 +10,8 @@ import java.util.ArrayList;
 
 public class SceneMatrizComponent extends SceneModel {
     public void inicializar(){
-        tituloVentana = "Matrices";
-        next=TypeScene.ENSAMBLAJE;
+        tituloVentana = "Componentes de las matrices";
+        next= TypeScene.ENSAMBLAJE;
         preview=TypeScene.PASO6;
         fondo="background01";
 
@@ -697,7 +698,7 @@ public class SceneMatrizComponent extends SceneModel {
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-        f.k(a,b,c);
+        f.j(a,b,c);
         f.igual(a,b,c);
         f.integral(a,b,c);
         m.s2(a,b,c);
@@ -716,7 +717,7 @@ public class SceneMatrizComponent extends SceneModel {
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-        f.k(a,b,c);
+        f.j(a,b,c);
         f.igual(a,b,c);
         m.sal2(a,b,c);
         f.integral(a,b,c);
@@ -767,7 +768,7 @@ public class SceneMatrizComponent extends SceneModel {
         a=new ArrayList<>();
         b=new ArrayList<>();
         c=new ArrayList<>();
-        f.k(a,b,c);
+        f.j(a,b,c);
         f.igual(a,b,c);
         m.sal2(a,b,c);
         m.pJ(a,b,c);
@@ -858,6 +859,190 @@ public class SceneMatrizComponent extends SceneModel {
                 "por tanto",
         });
 
+        //transicion 10
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(4);
+        //Ecuancion 01******** // tomaNDO ECUACION f
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.f(a,b,c);
+        f.igual(a,b,c);
+        //f
+        f.cons1(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        f.integral2(a,b,c);//dv
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 02******** integrando
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.f(a,b,c);
+        f.igual(a,b,c);
+        f.cons1(a,b,c);
+        m.fh(a,b,c);
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 03******** // tomaNDO ECUACION h
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.h(a,b,c);
+        f.igual(a,b,c);
+        //f
+        f.cons2(a,b,c);
+        f.integral(a,b,c);//SS
+        f.ntrasnpuesta(a,b,c);//nt
+        f.integral2(a,b,c);//dv
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 04******** integrando h
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.h(a,b,c);
+        f.igual(a,b,c);
+        f.cons2(a,b,c);
+        m.fh(a,b,c);
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+        subtitulos.add(new String[]{
+                "Operaremos la ecuacion f",
+                "Integramos",
+                "Operaremos la ecuacion h",
+                "Integramos",
+        });
+
+        //transicion 11
+        formulas=new ArrayList<>();
+        dimensiones=new ArrayList<>();
+        descripcion=new ArrayList<>();
+        transiciones.add(7);
+        //Ecuancion 01******** //ECUACION f
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.f(a,b,c);
+        f.igual(a,b,c);
+        f.cons1(a,b,c);
+        m.fh(a,b,c);
+        //fin C
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 02******** ecuacion h
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.h(a,b,c);
+        f.igual(a,b,c);
+        f.cons2(a,b,c);
+        m.fh(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 03******** // ecuacion C
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.c(a,b,c);
+        f.igual(a,b,c);
+        m.s2(a,b,c);
+        m.omega(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 04******** ecuacion k
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.k(a,b,c);
+        f.igual(a,b,c);
+        m.sal2(a,b,c);
+        m.p(a,b,c);
+        m.alphaBeta(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 05******** ecuacion j
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.j(a,b,c);
+        f.igual(a,b,c);
+        m.sal2(a,b,c);
+        m.pJ(a,b,c);
+        m.alphaBeta(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 06******** ecuacion G
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        f.g(a,b,c);
+        f.igual(a,b,c);
+        m.s2(a,b,c);
+        m.omega(a,b,c);
+        m.alpha(a,b,c);
+        m.beta(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        //Ecuancion 07******** Matriz
+        a=new ArrayList<>();
+        b=new ArrayList<>();
+        c=new ArrayList<>();
+        m.finM(a,b,c);
+        //-----------
+        formulas.add(a);
+        dimensiones.add(b);
+        descripcion.add(c);
+        formulasC.add(formulas);
+        dimensionesC.add(dimensiones);
+        descripcionC.add(descripcion);
+        //--------------------------------------------------------------------------------------------------------------
+        subtitulos.add(new String[]{
+                "Matriz f",
+                "Matriz h",
+                "Matriz C",
+                "Matriz K",
+                "Matriz J",
+                "Matriz G",
+                "Matriz Final"
+        });
 
 
 
@@ -872,8 +1057,10 @@ public class SceneMatrizComponent extends SceneModel {
                 "Operamos la matriz K",
                 "Operamos la matriz J",
                 "Operamos la matriz G",
+                "Operamos las matrices f y h",
+                "Revisamos Matriz Final"
 
-                
+
         };
 
 

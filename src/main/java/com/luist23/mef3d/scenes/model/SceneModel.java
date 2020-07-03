@@ -1,23 +1,13 @@
 package main.java.com.luist23.mef3d.scenes.model;
 
-import com.sun.xml.internal.fastinfoset.util.CharArray;
-import javafx.beans.value.ChangeListener;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -27,10 +17,12 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.MainApp;
-import main.java.com.luist23.mef3d.scenes.TypeScene;
+import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.Utiles;
 
 import java.util.ArrayList;
+
+import static java.lang.Thread.sleep;
 
 public class SceneModel {
     private  Stage stageOwner;
@@ -79,6 +71,7 @@ public class SceneModel {
         //inicializar();
         stageOwner = stage;
         stage.setTitle(tituloVentana);
+        fondo="navegacion/pizarra2";
 
         //botones---------------------------------
         siguiente= new HBox();
@@ -110,13 +103,6 @@ public class SceneModel {
 
 
 
-
-        //-----------------------------------------
-        //iniciando contenedores-------------------
-        //instruccion = Utiles.animation("teclas",stage.getHeight()*0.1,stage.getWidth()*0.1);
-        //HBox p= new HBox();
-
-        //presentacion.setFillWidth(true);
         naveacion = new HBox(anterior,instruccion,siguiente);
         content = new VBox(titulo,subtitulo,presentacion,naveacion);
         content.setAlignment(Pos.CENTER);
@@ -128,14 +114,37 @@ public class SceneModel {
         titulo.setText(stage.getTitle());
 
         subpila.setAlignment(Pos.CENTER);
+
+
         presentacion.setFitToWidth(true);
-        /*presentacion.setStyle(
-                "-fx-background-color: transparent;"+
-                        "-fx-control-inner-background: transparent;");*/
-        //subpila.setBackground(new Background(new BackgroundFill(Color.AZURE, null, null)) );
-        //presentacion.setBackground(new Background(new BackgroundFill(Color.AZURE, null, null))        );
         presentacion.setStyle("-fx-background: transparent;\n -fx-background-color: transparent");
         presentacion.setContent(subpila);
+        //Creating an object of Anonymous class which extends Thread class and passing this object to the reference of Thread class.
+//Anonymous class overriding run() method of Thread class
+        /*Thread t= new Thread(() -> {
+            try {
+                sleep(1000);
+                System.out.println("sho");
+                presentacion.vvalueProperty().setValue(1.0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });				//Anonymous class ends here
+*/
+
+        /*//presentacion.vvalueProperty()
+        presentacion.viewportBoundsProperty().addListener(
+                (observable, oldValue, newValue) -> {
+                    //titledPane.layout();
+                    t.run();
+                    System.out.println("se paso: "+ newValue);
+                    //presentacion.vvalueProperty().setValue(1.0);
+                }
+        );
+         */
+
+
+        //presentacion.heightProperty()
 
         pila.add(subpila);
         //presentacion.pre
@@ -190,6 +199,8 @@ public class SceneModel {
                     break;
                 case RIGHT:
                     comenzar();
+                    //System.out.println(presentacion.vvalueProperty());
+                    //System.out.println(presentacion.vvalueProperty());
                     break;
                 case UP:
                     //camera.setTranslateY((camera.getScaleY() + 50));
@@ -292,14 +303,15 @@ public class SceneModel {
                 titulo.setText(titulos[flagTrancision]);
                 if (flagTransicionAux < transiciones.get(flagTrancision)) {
                     HBox ecu= new HBox();
+                    ecu.setAlignment(Pos.CENTER);
+                    ecu.autosize();
+                    ecu.setSpacing(3);
                     subtitulo.setText(subtitulos.get(flagTrancision)[flagTransicionAux]);
                     llenarEcuacion(ecu,formulasC.get(flagTrancision).get(flagTransicionAux),
                             dimensionesC.get(flagTrancision).get(flagTransicionAux),
                             descripcionC.get(flagTrancision).get(flagTransicionAux));
                     subpila.getChildren().add(ecu);
-                    ecu.setAlignment(Pos.CENTER);
-                    ecu.autosize();
-                    ecu.setSpacing(3);
+
                     flagTransicionAux++;
 
                 }else
@@ -332,7 +344,7 @@ public class SceneModel {
                 int alto = Integer.parseInt(String.valueOf(evento.get(i).charAt(0)));
                 //evento[i].charAt(0)="";
                 int ancho = Integer.parseInt(String.valueOf(evento.get(i).charAt(1)));
-                System.out.println("evento: "+evento.get(i));
+                //System.out.println("evento: "+evento.get(i));
                 Tooltip tooltip = new Tooltip();
                 //tooltip.set
 
@@ -363,12 +375,14 @@ public class SceneModel {
 
                 imagen.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
                     //System.out.println("mouse");
-                    tooltip.setX(e.getScreenX());
-                    tooltip.setY(e.getScreenY());
+                    tooltip.setX(e.getScreenX()-tooltip.getWidth()*0.5);
+                    tooltip.setY(e.getScreenY()-tooltip.getHeight()*0.5);
                     tooltip.show(stageOwner);
                     //tooltip.setOnAutoHide((EventHandler<MouseEvent>) event -> tooltip.hide());
                 });
-                imagen.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
+                //tooltip.addEventFilter(MouseEvent.);
+                    //tooltip.setHideOnEscape(true);
+                tooltip.addEventFilter(MouseEvent.MOUSE_CLICKED, e->{
                     //System.out.println("unmouse");
                     tooltip.hide();
                 });

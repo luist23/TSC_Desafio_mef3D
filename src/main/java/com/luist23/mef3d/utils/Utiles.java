@@ -9,7 +9,7 @@ public  class Utiles {
     //private static Utiles = new Utiles;
 
     public static ImageView imagen(String a, double height, double width){
-        System.out.println(a + " "+height+ " "+width);
+        //System.out.println(a + " "+height+ " "+width);
         Image image = new Image(Utiles.class.getResourceAsStream("../assets/"+ a +".png"));
         ImageView view = new ImageView(image);
         view.setPreserveRatio(false);
@@ -32,6 +32,7 @@ public  class Utiles {
     }
 
     public static Background background(String a, double height ,double width){
+        //System.out.println(a);
         BackgroundSize backgroundSize = new BackgroundSize(width,
                 height,
                 true,
@@ -46,6 +47,24 @@ public  class Utiles {
 
         return new Background(image);
     }
+
+    public static Background background2(String a, double height ,double width){
+        //System.out.println(a);
+        BackgroundSize backgroundSize = new BackgroundSize(width,
+                height,
+                true,
+                true,
+                true,
+                true);
+        BackgroundImage image = new BackgroundImage(new Image(Utiles.class.getResourceAsStream("../assets/"+a+".png")),
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                backgroundSize);
+
+        return new Background(image);
+    }
+
     public Utiles(){
     }
 }

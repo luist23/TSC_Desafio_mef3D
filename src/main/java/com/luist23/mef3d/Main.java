@@ -20,6 +20,7 @@ public class Main extends Application {
         window.setTitle("Stage 1");
         button = new Button("Next page");
 
+
         button.setOnAction(e -> {
             Stage2.start("stage 2");
             //window.close();
