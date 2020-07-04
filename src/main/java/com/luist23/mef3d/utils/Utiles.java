@@ -30,6 +30,19 @@ public  class Utiles {
         view.setFitWidth(width);
         //return view;
     }
+    public static ImageView animation(String a, double height, double width){
+        //System.out.println(a);
+        ImageView view = new ImageView();
+        Image image = new Image(Utiles.class.getResource("../assets/"+a+".gif").toExternalForm());
+        view.setImage(image);
+        //view.setLayoutX(width);
+        //view.setLayoutY(height);
+
+        view.setPreserveRatio(true);
+        view.setFitHeight(height);
+        view.setFitWidth(width);
+        return view;
+    }
 
     public static Background background(String a, double height ,double width){
         //System.out.println(a);
@@ -51,11 +64,12 @@ public  class Utiles {
     public static Background background2(String a, double height ,double width){
         //System.out.println(a);
         BackgroundSize backgroundSize = new BackgroundSize(width,
-                height,
-                true,
-                true,
+                height ,
+                false,
+                false,
                 true,
                 true);
+
         BackgroundImage image = new BackgroundImage(new Image(Utiles.class.getResourceAsStream("../assets/"+a+".png")),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,

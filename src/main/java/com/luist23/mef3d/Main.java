@@ -1,42 +1,71 @@
 package main.java.com.luist23.mef3d;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import main.java.com.luist23.mef3d.factory.FactoryScene;
+import main.java.com.luist23.mef3d.scenes.fin.SceneEnsamblaje;
+import main.java.com.luist23.mef3d.scenes.model.SceneModel;
+import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.Utiles;
+
+import static java.lang.Thread.sleep;
+
 
 public class Main extends Application {
 
-    Stage window;
-    Button button;
+    private static Main main;
+    private static Stage primary;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        window = primaryStage;
-        //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        window.setTitle("Stage 1");
-        button = new Button("Next page");
+
+    public void start(Stage primaryStage) throws Exception {
+        primary = primaryStage;
+        main = this;
+        primary.setMaximized(true);
+        new Thread(new Runnable() {
+            public void a(){
+
+            }
+            public void run() {
+                SceneEnsamblaje.b= Utiles.animation("datos/1emsamblajeDos",Main.primary.getHeight()*0.9,Main.primary.getHeight()*0.9*5.52);
+                SceneEnsamblaje.a=Utiles.animation("datos/1emsamblajeUno",Main.primary.getHeight()*0.9,Main.primary.getHeight()*0.9*4.52);
+                SceneEnsamblaje.c=Utiles.animation("datos/1aplicando-condiciones",Main.primary.getHeight()*0.9,Main.primary.getHeight()*0.9*4.79);
+                //as.setValue(false);
+            }
+        }).start();
 
 
-        button.setOnAction(e -> {
-            Stage2.start("stage 2");
-            //window.close();
-        });
 
-        HBox hBox= new HBox(button, Utiles.imagen("a",25,50));
-        //StackPane layout = new StackPane();
-        //layout.getChildren().add(button, Utiles.imagen("a"));
 
-        window.setScene(new Scene(hBox));
-        window.setMaximized(true); //pantalla completa
-        window.show();
+
+        setSceneFactory(TypeScene.MAIN);
+        //primaryStage.setScene(FactoryScene.getScene(TypeScene.MAIN , this,primaryStage));
+        //primaryStage.initStyle(StageStyle.TRANSPARENT);
+        //System.out.println(primaryStage);
+        //primaryStage.setTitle("example");
+        primaryStage.show();
+
     }
 
+    public static void setSceneFactory(TypeScene a){
+        primary.setScene(FactoryScene.getScene(a, main, primary));
+    }
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         launch(args);
+
     }
+
+    public static Main obtenerdirrectorio() {
+        main = new Main();
+        return main;
+    }
+
+    public static Main getInstance() {
+        return main;
+    }
+    public static Stage getStage(){
+        return primary;
+    }
+
 }

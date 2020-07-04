@@ -1,7 +1,5 @@
 package main.java.com.luist23.mef3d.utils;
 
-import main.java.com.luist23.mef3d.Main;
-
 import java.util.ArrayList;
 
 public class MatricesUtil {

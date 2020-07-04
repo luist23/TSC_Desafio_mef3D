@@ -1,5 +1,7 @@
 package main.java.com.luist23.mef3d.scenes.model;
 
+import javafx.application.Platform;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
@@ -16,7 +18,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.MainApp;
+import main.java.com.luist23.mef3d.Main;
 import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.Utiles;
 
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 import static java.lang.Thread.sleep;
 
 public class SceneModel {
+    //public static ScrollPane forHilo;
     private  Stage stageOwner;
     private ScrollPane presentacion = new ScrollPane();
     private HBox naveacion;
@@ -35,6 +38,7 @@ public class SceneModel {
     protected TypeScene next,preview;
     private Scene scene;
     private ImageView instruccion = new ImageView();
+
 
 
     private VBox subpila= new VBox();
@@ -52,11 +56,6 @@ public class SceneModel {
 
 
 
-    protected void llenarArray(ArrayList<ArrayList<String>> a, String[] e){
-        ArrayList<String> list= new ArrayList<>();
-        llenar(list,e);
-        a.add(list);
-    }
     protected void llenar(ArrayList<String> list, String[] e){
         for (int i = 0 ; i < e.length ;i++){
             list.add(e[i]);
@@ -83,11 +82,20 @@ public class SceneModel {
         siguiente.setBackground(Utiles.background("navegacion/next",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
         anterior.setBackground(Utiles.background("navegacion/preview",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
 
+
+        ImageView exit = Utiles.animation("datos/unnamed",50,50);
+
+        SimpleBooleanProperty as=new SimpleBooleanProperty(true);
+        as.addListener((observable , an, newv)->{
+            Main.setSceneFactory(next);
+        });
+
+
         siguiente.setOnMouseClicked(e -> {
-            MainApp.setSceneFactory(next);
+            Main.setSceneFactory(next);
         });
         anterior.setOnMouseClicked(e -> {
-            MainApp.setSceneFactory(preview);
+            Main.setSceneFactory(preview);
         });
 
         //-----------------------------------------
@@ -119,29 +127,20 @@ public class SceneModel {
         presentacion.setFitToWidth(true);
         presentacion.setStyle("-fx-background: transparent;\n -fx-background-color: transparent");
         presentacion.setContent(subpila);
-        //Creating an object of Anonymous class which extends Thread class and passing this object to the reference of Thread class.
-//Anonymous class overriding run() method of Thread class
-        /*Thread t= new Thread(() -> {
-            try {
-                sleep(1000);
-                System.out.println("sho");
-                presentacion.vvalueProperty().setValue(1.0);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });				//Anonymous class ends here
-*/
 
-        /*//presentacion.vvalueProperty()
+
         presentacion.viewportBoundsProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     //titledPane.layout();
-                    t.run();
-                    System.out.println("se paso: "+ newValue);
-                    //presentacion.vvalueProperty().setValue(1.0);
+                    Platform.runLater(
+                            () -> {
+                                presentacion.setVvalue(1.0);
+                            }
+                    );
+
                 }
         );
-         */
+
 
 
         //presentacion.heightProperty()
@@ -160,37 +159,6 @@ public class SceneModel {
 
 
 
-
-        //subtitulo.setText(titulos.get(flag));
-
-
-        //presentacion.setAlignment(Pos.CENTER);
-        //presentacion.setMaxHeight(stage.getHeight()*0.8);
-        //text.maxHeight(stage.getHeight()*0.1);
-        //naveacion.setMaxHeight(stage.getHeight()*0.1);
-        //hBox.setPrefHeight(content.getHeight()*0.9);
-        //naveacion.setPrefHeight(stage.getHeight()*0.1);
-
-
-        //presentacion.getChildren().addAll(imageView);
-
-        //presentacion.setBackground(Utiles.background(images[flag],scene.getHeight()*0.1,scene.getWidth()*0.1));
-
-        /*
-        Tooltip tooltip = new Tooltip();
-        tooltip.setGraphic(Utiles.imagen("background01",50,75));//tooltip.setX(Mou);
-        subpila.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
-
-            System.out.println("mouse");
-            tooltip.setX(e.getScreenX());
-            tooltip.setY(e.getScreenY());
-            tooltip.show(stage);
-        });
-        subpila.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
-            //tooltip.hide();
-        });
-         */
-
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
 
             switch (e.getCode()) {
@@ -202,12 +170,7 @@ public class SceneModel {
                     //System.out.println(presentacion.vvalueProperty());
                     //System.out.println(presentacion.vvalueProperty());
                     break;
-                case UP:
-                    //camera.setTranslateY((camera.getScaleY() + 50));
-                    break;
-                case DOWN:
-                    //camera.setTranslateY((camera.getScaleY() - 50));
-                    break;
+                //break;
             }
 
         });
@@ -267,17 +230,8 @@ public class SceneModel {
                     }
 
                 }
-                /*else {
-                    presentacion.getChildren().remove(pila.remove(flagTrancision));
-                    flagTrancision--;
-                    subpila=pila.get(flagTrancision);
-                    presentacion.getChildren().add(subpila);
-                    titulo.setText(titulos.get(flagTrancision));
-                    flagTransicionAux = transiciones.get(flagTrancision)-1;
 
 
-                    //flagTransicionAux=0;
-                }*/
             }
         }
         }

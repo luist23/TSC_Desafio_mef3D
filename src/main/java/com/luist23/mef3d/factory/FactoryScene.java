@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.java.com.luist23.mef3d.scenes.*;
+import main.java.com.luist23.mef3d.scenes.fin.SceneEnsamblaje;
 import main.java.com.luist23.mef3d.scenes.fin.SceneMatrizComponent;
 import main.java.com.luist23.mef3d.scenes.inicio.SceneDatos;
 import main.java.com.luist23.mef3d.scenes.inicio.SceneModelo;
@@ -19,12 +20,6 @@ public class FactoryScene {
             case MAIN:
                 SceneStart sceneStart = new SceneStart(stage);
                 return sceneStart.getScene();
-            case STAGE2:
-                Escene02 escene02 = new Escene02(stage);
-                return escene02.getScene();
-            case S3D:
-                Escene3D escene3D = new Escene3D(stage);
-                return escene3D.getScene();
             case MODELO:
                 SceneModelo sceneModelo = new SceneModelo(stage);
                 return sceneModelo.getScene();
@@ -52,6 +47,9 @@ public class FactoryScene {
             case MATRICES:
                 SceneMatrizComponent m= new SceneMatrizComponent(stage);
                 return m.getScene();
+            case ENSAMBLAJE:
+                SceneEnsamblaje sceneEnsamblaje= new SceneEnsamblaje(stage);
+                return sceneEnsamblaje.getScene();
         }
         return null;
     }
