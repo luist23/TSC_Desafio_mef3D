@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Simu3D_proyecto">
+    <output-path>$PROJECT_DIR$/out/artifacts/Simu3D_proyecto</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="Main" />
+        <option name="description" value="Metodo de los Elemento Finitos" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="exe" />
+        <option name="title" value="MEF" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Simu3D_proyecto.jar">
+        <element id="module-output" name="Simu3D_proyecto" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -7,7 +7,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.Main;
+import main.java.com.luist23.mef3d.MainApp;
 import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.Utiles;
 
@@ -49,10 +49,10 @@ public class SceneDatos {
         anterior.setBackground(Utiles.background("navegacion/preview",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
 
         siguiente.setOnMouseClicked(e -> {
-            Main.setSceneFactory(next);
+            MainApp.setSceneFactory(next);
         });
         anterior.setOnMouseClicked(e -> {
-            Main.setSceneFactory(preview);
+            MainApp.setSceneFactory(preview);
         });
 
         nodos = new Button("Nodos");

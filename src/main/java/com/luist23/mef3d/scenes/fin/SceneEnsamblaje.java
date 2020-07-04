@@ -1,6 +1,5 @@
 package main.java.com.luist23.mef3d.scenes.fin;
 
-import javafx.beans.value.ChangeListener;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.Main;
+import main.java.com.luist23.mef3d.MainApp;
 import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.Utiles;
 
@@ -25,7 +24,7 @@ public class SceneEnsamblaje {
     private VBox content;
 
     private HBox presentacion;
-    private Button nodos, tetraedros, condicion, matriz;
+    private Button nodos, tetraedros, condicion, matriz,finalDef;
 
     private ScrollPane vista = new ScrollPane();
 
@@ -56,13 +55,14 @@ public class SceneEnsamblaje {
 
 
         anterior.setOnMouseClicked(e -> {
-            Main.setSceneFactory(preview);
+            MainApp.setSceneFactory(preview);
         });
 
         nodos = new Button("Ensamblaje 1");
         tetraedros = new Button("Ensamblaje 2");
         condicion = new Button("Aplicando Condiciones");
         matriz = new Button("Matriz");
+        finalDef = new Button("Paso Final");
         String style = "-fx-background-color: \n" +
                 "        #000000,\n" +
                 "        linear-gradient(#7ebcea, #2f4b8f),\n" +
@@ -76,14 +76,22 @@ public class SceneEnsamblaje {
         tetraedros.setStyle(style);
         condicion.setStyle(style);
         matriz.setStyle(style);
+        finalDef.setStyle(style);
         Tooltip tooltip = new Tooltip();
         tooltip.setText("hola");
 
         matriz.setOnMouseClicked(e -> {
             vista.setVvalue(0.5);
             vista.setHvalue(0.5);
-            vista.setContent(Utiles.imagen("datos/matricesfinalfinal",stage.getWidth()*0.1,stage.getWidth()*0.1*3.3));
-            miniatura.getChildren().removeAll();
+            vista.setContent(Utiles.imagen("datos/matricesfinalfinal",stage.getWidth()*0.1,stage.getWidth()*0.1*5));
+            //miniatura.getChildren().removeAll();
+        });
+
+        finalDef.setOnMouseClicked(e -> {
+            vista.setVvalue(0.5);
+            vista.setHvalue(0.5);
+            vista.setContent(Utiles.imagen("datos/finaldefinitivo",stage.getWidth()*0.1,stage.getWidth()*0.1*3.3));
+            //miniatura.getChildren().removeAll();
         });
         /*matriz.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
             tooltip.setText(
@@ -176,7 +184,7 @@ public class SceneEnsamblaje {
 
         //iniciando contenedores-------------------
         h= new HBox(vista);
-        presentacion= new HBox(matriz,nodos,tetraedros,condicion);
+        presentacion= new HBox(matriz,nodos,tetraedros,condicion,finalDef);
         naveacion = new HBox(anterior,miniatura);
         content = new VBox(presentacion,h,naveacion);
 
@@ -232,6 +240,8 @@ public class SceneEnsamblaje {
         condicion.setPrefWidth(stage.getHeight()*0.2);
         matriz.setPrefHeight(stage.getHeight()*0.05);
         matriz.setPrefWidth(stage.getHeight()*0.2);
+        finalDef.setPrefHeight(stage.getHeight()*0.05);
+        finalDef.setPrefWidth(stage.getHeight()*0.2);
 
 
         vista.setPrefHeight(stage.getHeight()*0.6);

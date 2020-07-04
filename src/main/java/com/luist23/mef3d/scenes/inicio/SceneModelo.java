@@ -12,7 +12,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.Main;
+import main.java.com.luist23.mef3d.MainApp;
 import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.Utiles;
 
@@ -55,10 +55,10 @@ public class SceneModelo {
         anterior.setBackground(Utiles.background("navegacion/preview",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
 
         siguiente.setOnMouseClicked(e -> {
-            Main.setSceneFactory(next);
+            MainApp.setSceneFactory(next);
         });
         anterior.setOnMouseClicked(e -> {
-            Main.setSceneFactory(preview);
+            MainApp.setSceneFactory(preview);
         });
         //-----------------------------------------
         //Mensaje ---------------------------------

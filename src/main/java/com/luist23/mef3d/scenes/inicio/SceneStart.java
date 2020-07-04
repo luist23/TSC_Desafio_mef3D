@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.Main;
+import main.java.com.luist23.mef3d.MainApp;
 import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
 import main.java.com.luist23.mef3d.utils.Utiles;
 
@@ -19,7 +19,7 @@ public class SceneStart {
         button = new HBox();
 
         button.setOnMouseClicked(e -> {
-            Main.setSceneFactory(TypeScene.MODELO);
+            MainApp.setSceneFactory(TypeScene.MODELO);
             //window.close();
         });
         //Text mensaje = new Text();
