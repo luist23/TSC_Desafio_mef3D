@@ -14,7 +14,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import com.luist23.mef3d.MainApp;
 import com.luist23.mef3d.scenes.numeracion.TypeScene;
-import com.luist23.mef3d.utils.Utiles;
+import com.luist23.mef3d.Utiles;
 
 public class SceneModelo {
     private HBox presentacion;

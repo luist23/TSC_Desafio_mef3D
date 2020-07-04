@@ -13,7 +13,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import com.luist23.mef3d.MainApp;
 import com.luist23.mef3d.scenes.numeracion.TypeScene;
-import com.luist23.mef3d.utils.Utiles;
+import com.luist23.mef3d.Utiles;
 
 
 public class SceneEnsamblaje {
@@ -30,8 +30,10 @@ public class SceneEnsamblaje {
 
     private HBox naveacion,h;
     private HBox anterior;
-    private HBox miniatura;
-    public static ImageView a,b,c;
+    //private HBox miniatura;
+    public static ImageView a,c,a1,c1,b1;
+    private ImageView uno,dos;
+    private boolean flag=true;
 
     private TypeScene preview;
     private Scene scene;
@@ -48,8 +50,8 @@ public class SceneEnsamblaje {
         //botones---------------------------------
         //siguiente= new HBox();
         anterior= new HBox();
-        ImageView a,b,c;
-        miniatura= new HBox();
+        //ImageView a,b,c;
+        //miniatura= new HBox();
 
         anterior.setBackground(Utiles.background("navegacion/preview",stage.getHeight()*0.2,stage.getHeight()*0.2*4));
 
@@ -80,17 +82,25 @@ public class SceneEnsamblaje {
         Tooltip tooltip = new Tooltip();
         tooltip.setText("hola");
 
+        uno=Utiles.imagen("datos/matricesfinalfinal",stage.getWidth()*0.1,stage.getWidth()*0.1*5);
+        dos=uno;
         matriz.setOnMouseClicked(e -> {
+            uno=Utiles.imagen("datos/matricesfinalfinal",stage.getWidth()*0.1,stage.getWidth()*0.1*5);
+            dos=uno;
+            flag=true;
             vista.setVvalue(0.5);
             vista.setHvalue(0.5);
-            vista.setContent(Utiles.imagen("datos/matricesfinalfinal",stage.getWidth()*0.1,stage.getWidth()*0.1*5));
+            vista.setContent(uno);
             //miniatura.getChildren().removeAll();
         });
 
         finalDef.setOnMouseClicked(e -> {
+            uno=Utiles.imagen("datos/finaldefinitivo",stage.getWidth()*0.1,stage.getWidth()*0.1*3.3);
+            dos=uno;
+            flag=true;
             vista.setVvalue(0.5);
             vista.setHvalue(0.5);
-            vista.setContent(Utiles.imagen("datos/finaldefinitivo",stage.getWidth()*0.1,stage.getWidth()*0.1*3.3));
+            vista.setContent(uno);
             //miniatura.getChildren().removeAll();
         });
         /*matriz.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
@@ -113,16 +123,37 @@ public class SceneEnsamblaje {
             //b.setFitWidth(50);
             //vista.setContent(Utiles.animation("datos/unnamed",50,50));
             vista.setContent(SceneEnsamblaje.a);
-            miniatura.getChildren().removeAll();
+            uno=SceneEnsamblaje.a;
+            dos=SceneEnsamblaje.a1;
+            flag=true;
+            //miniatura.getChildren().removeAll();
             //miniatura.getChildren().add(Utiles.animation("datos/1emsamblajeUno",stage.getWidth()*0.2,stage.getWidth()*0.4));
             vista.setVvalue(0.5);
             vista.setHvalue(0.5);
         });
+        //Tooltip siguiente= new Tooltip();
+        //siguiente.setText("siguiente");
+
+        vista.setOnMouseClicked(e -> {
+            if(flag){
+                vista.setContent(dos);
+                //System.out.println("dos"+uno);
+                flag=false;
+            }
+            else {
+                vista.setContent(uno);
+                //System.out.println("uno"+dos);
+                flag=true;
+            }
+
+        });
+
         nodos.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
             tooltip.setText("Trabajamos con el primer nodo:\n" +
                     "aplicamos ciertas caracteristicas correspondientes \n" +
                     "a las diferentes componentes de la forma que se detalla\n" +
-                    "para luego ser pocicionadas en la matriz final");
+                    "para luego ser pocicionadas en la matriz final" +
+                    "NOTA: clickea la imagen para cambiar\n\n\n");
             tooltip.setGraphic(Utiles.imagen("datos/finalEnsamblaje1",stage.getHeight()*0.4,stage.getHeight()*0.4*3));
             tooltip.setX(e.getScreenX()-tooltip.getWidth()*0.5);
             tooltip.setY(e.getScreenY()+25);
@@ -133,8 +164,11 @@ public class SceneEnsamblaje {
         });
 
         tetraedros.setOnMouseClicked(e -> {
-            vista.setContent(SceneEnsamblaje.b);
-            miniatura.getChildren().removeAll();
+            vista.setContent(SceneEnsamblaje.a1);
+            uno=SceneEnsamblaje.a1;
+            dos=SceneEnsamblaje.b1;
+            flag=true;
+            //miniatura.getChildren().removeAll();
             //miniatura.getChildren().add(Utiles.animation("datos/1emsamblajeDos",stage.getWidth()*0.2,stage.getWidth()*0.4));
             vista.setVvalue(0.5);
             vista.setHvalue(0.5);
@@ -143,7 +177,9 @@ public class SceneEnsamblaje {
             tooltip.setText("Trabajamos con el segundo nodo:\n" +
                     "igualmente aplicamos ciertas caracteristicas correspondientes \n" +
                     "a las diferentes componentes de la forma que se detalla\n" +
-                    "para luego ser pocicionadas en la matriz final");
+                    "para luego ser pocicionadas en la matriz final"+
+                    "para luego ser pocicionadas en la matriz final" +
+                    "NOTA: clickea la imagen para cambiar\n\n\n");
             tooltip.setGraphic(Utiles.imagen("datos/finalEnsamblaje2",stage.getHeight()*0.4,stage.getHeight()*0.4*3));
             tooltip.setX(e.getScreenX()-tooltip.getWidth()*0.5);
             tooltip.setY(e.getScreenY()+25);
@@ -154,7 +190,10 @@ public class SceneEnsamblaje {
         });
         condicion.setOnMouseClicked(e -> {
             vista.setContent(SceneEnsamblaje.c);
-            miniatura.getChildren().removeAll();
+            uno=SceneEnsamblaje.c;
+            dos=SceneEnsamblaje.c1;
+            flag=true;
+            //miniatura.getChildren().removeAll();
             //miniatura.getChildren().add(Utiles.animation("datos/1aplicando-condiciones",stage.getWidth()*0.2,stage.getWidth()*0.4));
             vista.setVvalue(0.5);
             vista.setHvalue(0.5);
@@ -166,7 +205,9 @@ public class SceneEnsamblaje {
                     "en cuanto a las Bs en la pocicion nodo + total de nodos.\n\n" +
                     " Se eliminan filas y columnas con las condiciones de Dirichlet:\n" +
                     " las respectivas a los nodos y nodos + total de nodos," +
-                    "desplazando los valores de las columnas eliminadas a una nueva columna sumada");
+                    "desplazando los valores de las columnas eliminadas a una nueva columna sumada"+
+                    "para luego ser pocicionadas en la matriz final" +
+                    "NOTA: clickea la imagen para cambiar\n\n\n");
             tooltip.setGraphic(Utiles.imagen("datos/condicionesfinal",stage.getHeight()*0.2,stage.getHeight()*0.3));
             tooltip.setX(e.getScreenX()-tooltip.getWidth()*0.5);
             //tooltip.setMaxWidth(stage.getHeight()*0.3);
@@ -185,7 +226,7 @@ public class SceneEnsamblaje {
         //iniciando contenedores-------------------
         h= new HBox(vista);
         presentacion= new HBox(matriz,nodos,tetraedros,condicion,finalDef);
-        naveacion = new HBox(anterior,miniatura);
+        naveacion = new HBox(anterior);
         content = new VBox(presentacion,h,naveacion);
 
         content.setAlignment(Pos.CENTER);
@@ -207,7 +248,7 @@ public class SceneEnsamblaje {
 
         vista.setFitToWidth(true);
         vista.setStyle("-fx-background: transparent;\n -fx-background-color: transparent;\n -fx-aling-items: center; \n -fx-justify-content: center;");
-        vista.setContent(Utiles.imagen("datos/matricesfinalfinal",stage.getWidth()*0.1,stage.getWidth()*0.1*3.3));
+        vista.setContent(uno);
 
 
         //Utiles.animation( instruccion, "teclas",stage.getHeight()*0.2,stage.getHeight()*0.2*1.5);

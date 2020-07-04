@@ -1,15 +1,16 @@
-package com.luist23.mef3d.utils;
+package com.luist23.mef3d;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 public  class Utiles {
-    //private static Utiles = new Utiles;
+    public static Utiles utiles = new Utiles();
+    //public static utilClass s= new utilClass();
 
     public static ImageView imagen(String a, double height, double width){
         //System.out.println(a + " "+height+ " "+width);
-        Image image = new Image(Utiles.class.getResourceAsStream("../assets/"+ a +".png"));
+        Image image = new Image(utiles.getClass().getResourceAsStream("assets/"+ a +".png"));
         ImageView view = new ImageView(image);
         view.setPreserveRatio(false);
         view.setFitHeight(height);
@@ -19,7 +20,7 @@ public  class Utiles {
 
     public static void animation(ImageView view, String a, double height, double width){
         //ImageView view = new ImageView();
-        Image image = new Image(Utiles.class.getResource("../assets/"+a+".gif").toExternalForm());
+        Image image = new Image(utiles.getClass().getResourceAsStream("assets/"+a+".gif"));
         view.setImage(image);
         //view.setLayoutX(width);
         //view.setLayoutY(height);
@@ -32,7 +33,7 @@ public  class Utiles {
     public static ImageView animation(String a, double height, double width){
         //System.out.println(a);
         ImageView view = new ImageView();
-        Image image = new Image(Utiles.class.getResource("../assets/"+a+".gif").toExternalForm());
+        Image image = new Image(utiles.getClass().getResourceAsStream("assets/"+a+".gif"));
         view.setImage(image);
         //view.setLayoutX(width);
         //view.setLayoutY(height);
@@ -51,7 +52,7 @@ public  class Utiles {
                 true,
                 true,
                 false);
-        BackgroundImage image = new BackgroundImage(new Image(Utiles.class.getResourceAsStream("../assets/"+a+".png")),
+        BackgroundImage image = new BackgroundImage(new Image(utiles.getClass().getResourceAsStream("assets/"+a+".png")),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
@@ -69,7 +70,7 @@ public  class Utiles {
                 true,
                 true);
 
-        BackgroundImage image = new BackgroundImage(new Image(Utiles.class.getResourceAsStream("../assets/"+a+".png")),
+        BackgroundImage image = new BackgroundImage(new Image(utiles.getClass().getResourceAsStream("assets/"+a+".png")),
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,

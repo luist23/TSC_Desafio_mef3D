@@ -5,8 +5,7 @@ import javafx.stage.Stage;
 import com.luist23.mef3d.factory.FactoryScene;
 import com.luist23.mef3d.scenes.fin.SceneEnsamblaje;
 import com.luist23.mef3d.scenes.numeracion.TypeScene;
-import com.luist23.mef3d.utils.Utiles;
-
+//export JVM_ARGS="-Xms1024m -Xmx1024m"
 import static java.lang.Thread.sleep;
 
 
@@ -21,14 +20,15 @@ public class MainApp extends Application {
         primary = primaryStage;
         main = this;
         primary.setMaximized(true);
+        Utiles.utiles = new Utiles();
         new Thread(new Runnable() {
-            public void a(){
-
-            }
             public void run() {
-                SceneEnsamblaje.b= Utiles.animation("datos/1emsamblajeDos", MainApp.primary.getHeight()*0.9, MainApp.primary.getHeight()*0.9*5.52);
-                SceneEnsamblaje.a=Utiles.animation("datos/1emsamblajeUno", MainApp.primary.getHeight()*0.9, MainApp.primary.getHeight()*0.9*4.52);
-                SceneEnsamblaje.c=Utiles.animation("datos/1aplicando-condiciones", MainApp.primary.getHeight()*0.9, MainApp.primary.getHeight()*0.9*4.79);
+                SceneEnsamblaje.a=Utiles.imagen("datos/emsamblajeUno1", MainApp.primary.getHeight()*0.9, MainApp.primary.getHeight()*0.9*4.52);
+                SceneEnsamblaje.a1=Utiles.imagen("datos/emsamblajeUno2", MainApp.primary.getHeight()*0.9, MainApp.primary.getHeight()*0.9*4.52);
+                //SceneEnsamblaje.b=SceneEnsamblaje.a1;
+                SceneEnsamblaje.b1= Utiles.imagen("datos/emsamblajeDos2", MainApp.primary.getHeight()*0.9, MainApp.primary.getHeight()*0.9*5.52);
+                SceneEnsamblaje.c=Utiles.imagen("datos/aplicando-condiciones1", MainApp.primary.getHeight()*0.9, MainApp.primary.getHeight()*0.9*4.79);
+                SceneEnsamblaje.c1=Utiles.imagen("datos/aplicando-condiciones22", MainApp.primary.getHeight()*0.9, MainApp.primary.getHeight()*0.9*4.79);
                 //as.setValue(false);
             }
         }).start();
