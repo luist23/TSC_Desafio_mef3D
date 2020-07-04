@@ -1,9 +1,9 @@
-package main.java.com.luist23.mef3d.scenes.pasos;
+package com.luist23.mef3d.scenes.pasos;
 
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
-import main.java.com.luist23.mef3d.scenes.model.SceneModel;
-import main.java.com.luist23.mef3d.utils.FormulasUtil;
+import com.luist23.mef3d.scenes.numeracion.TypeScene;
+import com.luist23.mef3d.scenes.model.SceneModel;
+import com.luist23.mef3d.utils.FormulasUtil;
 
 import java.util.ArrayList;
 

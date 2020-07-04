@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Simu3D_proyecto</output-path>
     <properties id="javafx-properties">
       <options>
-        <option name="appClass" value="Main" />
+        <option name="appClass" value="MainApp" />
         <option name="description" value="Metodo de los Elemento Finitos" />
         <option name="htmlPlaceholderId" value="" />
         <option name="nativeBundle" value="exe" />

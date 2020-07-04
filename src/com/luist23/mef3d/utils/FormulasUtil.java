@@ -1,4 +1,4 @@
-package main.java.com.luist23.mef3d.utils;
+package com.luist23.mef3d.utils;
 
 import java.util.ArrayList;
 

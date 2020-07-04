@@ -1,16 +1,15 @@
-package main.java.com.luist23.mef3d.factory;
+package com.luist23.mef3d.factory;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.scenes.*;
-import main.java.com.luist23.mef3d.scenes.fin.SceneEnsamblaje;
-import main.java.com.luist23.mef3d.scenes.fin.SceneMatrizComponent;
-import main.java.com.luist23.mef3d.scenes.inicio.SceneDatos;
-import main.java.com.luist23.mef3d.scenes.inicio.SceneModelo;
-import main.java.com.luist23.mef3d.scenes.inicio.SceneStart;
-import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
-import main.java.com.luist23.mef3d.scenes.pasos.*;
+import com.luist23.mef3d.scenes.fin.SceneEnsamblaje;
+import com.luist23.mef3d.scenes.fin.SceneMatrizComponent;
+import com.luist23.mef3d.scenes.inicio.SceneDatos;
+import com.luist23.mef3d.scenes.inicio.SceneModelo;
+import com.luist23.mef3d.scenes.inicio.SceneStart;
+import com.luist23.mef3d.scenes.numeracion.TypeScene;
+import com.luist23.mef3d.scenes.pasos.*;
 
 public class FactoryScene {
 

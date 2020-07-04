@@ -1,13 +1,13 @@
-package main.java.com.luist23.mef3d.scenes.inicio;
+package com.luist23.mef3d.scenes.inicio;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.MainApp;
-import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
-import main.java.com.luist23.mef3d.utils.Utiles;
+import com.luist23.mef3d.MainApp;
+import com.luist23.mef3d.scenes.numeracion.TypeScene;
+import com.luist23.mef3d.utils.Utiles;
 
 
 public class SceneStart {

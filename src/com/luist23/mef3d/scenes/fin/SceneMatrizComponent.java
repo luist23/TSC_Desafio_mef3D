@@ -1,10 +1,10 @@
-package main.java.com.luist23.mef3d.scenes.fin;
+package com.luist23.mef3d.scenes.fin;
 
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.scenes.model.SceneModel;
-import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
-import main.java.com.luist23.mef3d.utils.FormulasUtil;
-import main.java.com.luist23.mef3d.utils.MatricesUtil;
+import com.luist23.mef3d.scenes.model.SceneModel;
+import com.luist23.mef3d.scenes.numeracion.TypeScene;
+import com.luist23.mef3d.utils.FormulasUtil;
+import com.luist23.mef3d.utils.MatricesUtil;
 
 import java.util.ArrayList;
 

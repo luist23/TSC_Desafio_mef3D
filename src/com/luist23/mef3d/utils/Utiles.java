@@ -1,6 +1,5 @@
-package main.java.com.luist23.mef3d.utils;
+package com.luist23.mef3d.utils;
 
-import javafx.animation.Animation;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;

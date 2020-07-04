@@ -1,4 +1,4 @@
-package main.java.com.luist23.mef3d.scenes.numeracion;
+package com.luist23.mef3d.scenes.numeracion;
 
 public enum TypeScene {
     MAIN, STAGE2 , BIENVENIDA,MODELO,DOMINIO,CONDICIONES,

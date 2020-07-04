@@ -1,4 +1,4 @@
-package main.java.com.luist23.mef3d.scenes.model;
+package com.luist23.mef3d.scenes.model;
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -18,9 +18,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import main.java.com.luist23.mef3d.MainApp;
-import main.java.com.luist23.mef3d.scenes.numeracion.TypeScene;
-import main.java.com.luist23.mef3d.utils.Utiles;
+import com.luist23.mef3d.MainApp;
+import com.luist23.mef3d.scenes.numeracion.TypeScene;
+import com.luist23.mef3d.utils.Utiles;
 
 import java.util.ArrayList;
 
